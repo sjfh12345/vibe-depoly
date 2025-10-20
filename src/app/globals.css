@@ -117,8 +117,7 @@
   --letter-spacing-widest: 0.1em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+.dark {
     --background: #1C1C1C;
     --foreground: #FFFFFF;
 
@@ -134,7 +133,6 @@
     /* 다크모드에서 타이포그래피 조정 (필요한 경우) */
     /* 여기서는 타이포그래피는 동일하게 유지 */
   }
-}
 
 @media (max-width: 768px) {
   :root {

@@ -1,0 +1,157 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pageNumbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+/* Size variants */
+.pagination-small .pageItem {
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+}
+
+.pagination-medium .pageItem {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+}
+
+.pagination-large .pageItem {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+
+/* Theme: Light */
+.theme-light.pagination-primary .pageItem {
+  background-color: #FFFFFF;
+  color: #777777;
+}
+
+.theme-light.pagination-primary .pageItem.active {
+  background-color: #F2F2F2;
+  color: #000000;
+  font-weight: 500;
+}
+
+.theme-light.pagination-secondary .pageItem {
+  background-color: #FFFFFF;
+  color: #777777;
+}
+
+.theme-light.pagination-secondary .pageItem.active {
+  background-color: #DBEEFF;
+  color: #3A5CF3;
+  font-weight: 500;
+}
+
+.theme-light.pagination-tertiary .pageItem {
+  background-color: transparent;
+  color: #777777;
+}
+
+.theme-light.pagination-tertiary .pageItem.active {
+  background-color: transparent;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* Theme: Dark */
+.theme-dark.pagination-primary .pageItem {
+  background-color: transparent;
+  color: #919191;
+}
+
+.theme-dark.pagination-primary .pageItem.active {
+  background-color: #333333;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.theme-dark.pagination-secondary .pageItem {
+  background-color: transparent;
+  color: #919191;
+}
+
+.theme-dark.pagination-secondary .pageItem.active {
+  background-color: rgba(73, 124, 255, 0.2);
+  color: #6DA5FA;
+  font-weight: 500;
+}
+
+.theme-dark.pagination-tertiary .pageItem {
+  background-color: transparent;
+  color: #919191;
+}
+
+.theme-dark.pagination-tertiary .pageItem.active {
+  background-color: transparent;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.pageItem:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-dark .pageItem:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navigationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navigationButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navigationButton img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Size variants for navigation buttons */
+.pagination-small .navigationButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.pagination-medium .navigationButton img {
+  width: 24px;
+  height: 24px;
+}
+
+.pagination-large .navigationButton img {
+  width: 28px;
+  height: 28px;
+}

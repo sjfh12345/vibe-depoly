@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 기본 배경 및 전경 색상 */
+  --background: #ffffff;
+  --foreground: #000000;
+
+  /* Blue */
+  --blue-05: #F0F7FF;
+  --blue-10: #DBEEFF;
+  --blue-20: #BDDBFF;
+  --blue-30: #93BEFF;
+  --blue-40: #6DA5FA;
+  --blue-50: #497CFF;
+  --blue-60: #3A5CF3;
+  --blue-70: #274AE1;
+  --blue-80: #1530A6;
+  --blue-90: #0B2184;
+
+  /* Gray */
+  --gray-white: #FFFFFF;
+  --gray-05: #F2F2F2;
+  --gray-10: #E4E4E4;
+  --gray-20: #D4D3D3;
+  --gray-30: #C7C7C7;
+  --gray-40: #ABABAB;
+  --gray-50: #919191;
+  --gray-60: #777777;
+  --gray-70: #5F5F5F;
+  --gray-80: #333333;
+  --gray-90: #1C1C1C;
+  --gray-black: #000000;
+
+  /* Red */
+  --red-05: #FDD7DC;
+  --red-10: #F797A4;
+  --red-20: #F4677A;
+  --red-30: #F03851;
+  --red-40: #E4112E;
+  --red-50: #B40E24;
+  --red-60: #850A1B;
+
+  /* Green */
+  --green-05: #D3F3E0;
+  --green-10: #92E6B9;
+  --green-20: #15D66F;
+  --green-30: #12B75F;
+  --green-40: #109C51;
+  --green-50: #0E723C;
+  --green-60: #084424;
+
+  /* Yellow */
+  --yellow-05: #FFE499;
+  --yellow-10: #FFD666;
+  --yellow-20: #FFC933;
+  --yellow-30: #FFB300;
+  --yellow-40: #EBA500;
+  --yellow-50: #D69600;
+  --yellow-60: #B27D00;
+
+  /* Cool Gray */
+  --cool-gray-01: #F8F8FA;
+  --cool-gray-05: #F6F6F9;
+  --cool-gray-10: #EDEEF2;
+  --cool-gray-20: #DDDFE5;
+  --cool-gray-30: #D2D4DD;
+  --cool-gray-40: #C7C9D5;
+  --cool-gray-50: #BBBECD;
+  --cool-gray-60: #B0B3C4;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(45deg, #6DA5FA 0%, #92EAF5 100%);
+  --gradient-skeleton: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 48.5%, rgba(255,255,255,0) 100%);
+
+  /* Semantic Colors */
+  --error: var(--red-30);
+  --success: var(--green-30);
+  --primary: var(--blue-60);
+  --warning: var(--yellow-30);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1C1C1C;
+    --foreground: #FFFFFF;
+
+    /* 다크모드에서 그라데이션 조정 */
+    --gradient-skeleton: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.2) 48.5%, rgba(0,0,0,0) 100%);
+    
+    /* 다크모드에서 시맨틱 색상 조정 */
+    --primary: var(--blue-40);
+    --error: var(--red-20);
+    --success: var(--green-20);
+    --warning: var(--yellow-20);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

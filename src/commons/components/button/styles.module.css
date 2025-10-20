@@ -1,0 +1,137 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-family: 'Pretendard Variable', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
+  gap: 8px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* 크기 변형 */
+.button-small {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.button-medium {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+.button-large {
+  height: 48px;
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+/* Primary 버튼 스타일 */
+.button-primary.theme-light {
+  background-color: #000000; /* 피그마 디자인에 맞게 검은색 배경 */
+  color: #FFFFFF;
+}
+
+.button-primary.theme-light:hover:not(:disabled) {
+  background-color: #274AE1; /* blue.70 */
+}
+
+.button-primary.theme-light:active:not(:disabled) {
+  background-color: #1530A6; /* blue.80 */
+}
+
+.button-primary.theme-dark {
+  background-color: #6DA5FA; /* blue.40 */
+  color: #000000;
+}
+
+.button-primary.theme-dark:hover:not(:disabled) {
+  background-color: #497CFF; /* blue.50 */
+}
+
+.button-primary.theme-dark:active:not(:disabled) {
+  background-color: #3A5CF3; /* blue.60 */
+}
+
+/* Secondary 버튼 스타일 */
+.button-secondary.theme-light {
+  background-color: #F0F7FF; /* blue.05 */
+  color: #3A5CF3; /* blue.60 */
+  border: 1px solid #BDDBFF; /* blue.20 */
+}
+
+.button-secondary.theme-light:hover:not(:disabled) {
+  background-color: #DBEEFF; /* blue.10 */
+}
+
+.button-secondary.theme-light:active:not(:disabled) {
+  background-color: #BDDBFF; /* blue.20 */
+}
+
+.button-secondary.theme-dark {
+  background-color: transparent;
+  color: #6DA5FA; /* blue.40 */
+  border: 1px solid #6DA5FA; /* blue.40 */
+}
+
+.button-secondary.theme-dark:hover:not(:disabled) {
+  background-color: rgba(109, 165, 250, 0.1); /* blue.40 with opacity */
+}
+
+.button-secondary.theme-dark:active:not(:disabled) {
+  background-color: rgba(109, 165, 250, 0.2); /* blue.40 with more opacity */
+}
+
+/* Tertiary 버튼 스타일 */
+.button-tertiary.theme-light {
+  background-color: transparent;
+  color: #3A5CF3; /* blue.60 */
+}
+
+.button-tertiary.theme-light:hover:not(:disabled) {
+  background-color: rgba(58, 92, 243, 0.05); /* blue.60 with slight opacity */
+}
+
+.button-tertiary.theme-light:active:not(:disabled) {
+  background-color: rgba(58, 92, 243, 0.1); /* blue.60 with more opacity */
+}
+
+.button-tertiary.theme-dark {
+  background-color: transparent;
+  color: #6DA5FA; /* blue.40 */
+}
+
+.button-tertiary.theme-dark:hover:not(:disabled) {
+  background-color: rgba(109, 165, 250, 0.05); /* blue.40 with slight opacity */
+}
+
+.button-tertiary.theme-dark:active:not(:disabled) {
+  background-color: rgba(109, 165, 250, 0.1); /* blue.40 with more opacity */
+}
+
+/* 아이콘 스타일 */
+.leftIcon, .rightIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

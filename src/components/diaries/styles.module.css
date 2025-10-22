@@ -1,0 +1,222 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.gap {
+  width: 100%;
+  max-width: 1168px;
+}
+
+.gap:first-child {
+  height: 32px;
+}
+
+.gap:nth-of-type(3) {
+  height: 42px;
+}
+
+.gap:nth-of-type(5) {
+  height: 40px;
+}
+
+.gap:last-child {
+  height: 40px;
+}
+
+.search {
+  width: 100%;
+  max-width: 1168px;
+  height: 48px;
+}
+
+.searchWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchLeft {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.searchRight {
+  display: flex;
+  align-items: center;
+}
+
+.filterSelect {
+  width: 120px;
+}
+
+/* searchbar 컴포넌트의 width를 320px로 설정 */
+.searchInput {
+  width: 320px !important;
+}
+
+/* searchbar 클래스를 갖는 모든 요소의 width 설정을 위한 도우미 클래스 */
+.searchbarHelper :global([class*="searchbar"]) {
+  width: 320px !important;
+}
+
+
+.writeButton {
+  width: fit-content; /* 허그 모드로 변경 */
+}
+
+/* button-large의 padding을 0px로 설정하고 width를 허그 모드로 */
+.writeButton :global([class*="button-large"]),
+.writeButton :global([class*="button"]) {
+  padding: 0px;
+  width: fit-content;
+}
+
+/* leftIcon의 height와 width를 14px로 설정 */
+.writeButton :global(span[class*="leftIcon"]) {
+  height: 14px;
+  width: 14px;
+}
+
+/* leftIcon 클래스를 갖는 모든 요소의 설정을 위한 도우미 클래스 */
+.leftIconHelper :global([class*="leftIcon__"]) {
+  height: 14px;
+  width: 14px;
+}
+
+/* 버튼 내부 content 높이와 너비를 hug 모드로 설정하고 size를 middle로 */
+.writeButton :global(span[class*="content"]) {
+  height: fit-content;
+  width: fit-content;
+  font-size: var(--font-size-base); /* middle 사이즈에 해당하는 16px */
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.main {
+  width: 100%;
+  max-width: 1168px;
+  height: 936px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pagination {
+  width: 100%;
+  max-width: 1168px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchContent {
+  color: var(--gray-60);
+  font-size: var(--font-size-base); /* middle 사이즈에 해당하는 16px */
+  font-weight: var(--font-weight-medium);
+  height: fit-content;
+  width: fit-content;
+}
+
+.diaryGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 0;
+}
+
+.diaryCard {
+  width: 274px;
+  height: 296px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 16px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 208px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  background-color: var(--white);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardContent {
+  width: 100%;
+  padding: 16px 8px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emotionLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+  letter-spacing: -0.14px;
+}
+
+.date {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 24px;
+  letter-spacing: -0.14px;
+  color: var(--gray-50);
+}
+
+.titleWrapper {
+  width: 100%;
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: 24px;
+  letter-spacing: -0.18px;
+  color: var(--gray-100);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.paginationContent {
+  color: var(--gray-60);
+  font-size: var(--font-size-base); /* middle 사이즈에 해당하는 16px */
+  font-weight: var(--font-weight-medium);
+  height: fit-content;
+  width: fit-content;
+}
+
+.paginationComponent {
+  width: auto;
+}

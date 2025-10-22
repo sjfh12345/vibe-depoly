@@ -1,0 +1,227 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1168px;
+  margin: 0 auto;
+}
+
+.gap {
+  width: 1168px;
+  height: 24px;
+}
+
+.gap:first-child {
+  height: 64px;
+}
+
+.gap:nth-last-child(2) {
+  height: 16px;
+}
+
+/* 상세 타이틀 영역 */
+.detailTitle {
+  width: 1168px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleSection {
+  width: 100%;
+  border-bottom: 2px solid var(--gray-black);
+  padding-bottom: 12px;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  color: var(--gray-black);
+  margin: 0;
+}
+
+.emotionSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.emotionInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.emotionLabel {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--red-40);
+}
+
+.dateInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date, .dateLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--gray-50);
+}
+
+/* 상세 내용 영역 */
+.detailContent {
+  width: 1168px;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.contentLabel {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--gray-black);
+  margin: 0;
+}
+
+.contentText {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  color: var(--gray-80);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.contentActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--gray-black);
+  padding: 0;
+}
+
+/* 상세 푸터 영역 */
+.detailFooter {
+  width: 1168px;
+  height: 56px;
+  border-bottom: 1px solid var(--gray-black);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* 회고 영역 */
+/* space-between 제거하고 gap 12px 적용 완료 */
+.retrospectItem {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-10);
+}
+
+.retrospectContent {
+  flex: 1;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--gray-80);
+  margin: 0;
+}
+
+.retrospectDate {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--gray-50);
+  margin: 0;
+}
+
+/* Button 스타일 오버라이드 */
+.buttonOverride {
+  color: var(--gray-90) !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  font-family: 'Pretendard Variable', sans-serif !important;
+}
+
+.secondaryButtonOverride {
+  background-color: var(--gray-white) !important;
+  border-color: var(--gray-20) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.editButton, .deleteButton {
+  width: 51px;
+}
+
+.retrospectInput {
+  width: 1168px;
+}
+
+.retrospectInputWrapper {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.retrospectInputField {
+  width: calc(100% - 96px);
+}
+
+/* button.styles_button-medium__BDALj의 padding 제거, height 48px, width 51px 설정 완료 */
+.retrospectButton {
+  width: 51px;
+  height: 48px;
+  padding: 0px;
+}
+
+/* padding 제거 완료 */
+.retrospectList {
+  width: 1168px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+}
+
+/* styles_main__14g__의 padding-bottom 402px 설정 완료 */
+.main {
+  padding-bottom: 402px;
+}
+
+/* styles_content__irhZy의 padding 제거, height 48px, width 51px 설정 완료 */
+.retrospectButton :global(.content) {
+  padding: 0;
+  height: 48px;
+  width: 51px;
+}

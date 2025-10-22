@@ -80,7 +80,11 @@
   --primary: var(--blue-60);
   --warning: var(--yellow-30);
 
-  /* Typography - Font Size (한글, 데스크톱) */
+  /* ================ */
+  /* Typography - Korean */
+  /* ================ */
+
+  /* Font Size - Desktop (Korean) */
   --font-size-xs: 0.75rem;     /* 12px */
   --font-size-sm: 0.875rem;    /* 14px */
   --font-size-base: 1rem;      /* 16px */
@@ -90,8 +94,11 @@
   --font-size-3xl: 1.875rem;   /* 30px */
   --font-size-4xl: 2.25rem;    /* 36px */
   --font-size-5xl: 3rem;       /* 48px */
+  --font-size-6xl: 3.75rem;    /* 60px */
+  --font-size-7xl: 4.5rem;     /* 72px */
+  --font-size-8xl: 6rem;       /* 96px */
 
-  /* Typography - Font Weight */
+  /* Font Weight */
   --font-weight-thin: 100;
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -100,7 +107,7 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
 
-  /* Typography - Line Height (한글, 데스크톱) */
+  /* Line Height - Desktop (Korean) */
   --line-height-none: 1;
   --line-height-tight: 1.25;
   --line-height-snug: 1.375;
@@ -108,47 +115,156 @@
   --line-height-relaxed: 1.625;
   --line-height-loose: 2;
 
-  /* Typography - Letter Spacing (한글, 데스크톱) */
+  /* Letter Spacing - Desktop (Korean) */
   --letter-spacing-tighter: -0.05em;
   --letter-spacing-tight: -0.025em;
   --letter-spacing-normal: 0em;
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
   --letter-spacing-widest: 0.1em;
+
+  /* ================ */
+  /* Typography Styles - Korean */
+  /* ================ */
+
+  /* Web Headline Styles */
+  --web-headline01-font-weight: var(--font-weight-semibold);
+  --web-headline01-font-size: 3rem;
+  --web-headline01-line-height: 3.75rem;
+
+  --web-headline02-font-weight: var(--font-weight-semibold);
+  --web-headline02-font-size: 2.25rem;
+  --web-headline02-line-height: 3rem;
+
+  --web-headline03-font-weight: var(--font-weight-semibold);
+  --web-headline03-font-size: 1.75rem;
+  --web-headline03-line-height: 2.25rem;
+
+  /* Headline Styles */
+  --headline01-font-weight: var(--font-weight-bold);
+  --headline01-font-size: 1.5rem;
+  --headline01-line-height: 2rem;
+
+  --headline02-font-weight: var(--font-weight-extrabold);
+  --headline02-font-size: 1.375rem;
+  --headline02-line-height: 1.875rem;
+
+  --headline03-font-weight: var(--font-weight-bold);
+  --headline03-font-size: 1.25rem;
+  --headline03-line-height: 1.75rem;
+
+  /* Title Styles */
+  --title01-font-weight: var(--font-weight-bold);
+  --title01-font-size: 1.125rem;
+  --title01-line-height: 1.5rem;
+
+  --title02-font-weight: var(--font-weight-bold);
+  --title02-font-size: 1rem;
+  --title02-line-height: 1.375rem;
+
+  --title03-font-weight: var(--font-weight-bold);
+  --title03-font-size: 0.875rem;
+  --title03-line-height: 1.25rem;
+
+  --subtitle01-font-weight: var(--font-weight-semibold);
+  --subtitle01-font-size: 0.875rem;
+  --subtitle01-line-height: 1.375rem;
+
+  --subtitle02-font-weight: var(--font-weight-semibold);
+  --subtitle02-font-size: 0.75rem;
+  --subtitle02-line-height: 1.125rem;
+
+  /* Body Styles */
+  --body01-font-weight: var(--font-weight-medium);
+  --body01-font-size: 1rem;
+  --body01-line-height: 1.5rem;
+
+  --body02-m-font-weight: var(--font-weight-medium);
+  --body02-m-font-size: 0.875rem;
+  --body02-m-line-height: 1.375rem;
+
+  --body03-font-weight: var(--font-weight-medium);
+  --body03-font-size: 0.75rem;
+  --body03-line-height: 1.125rem;
+
+  --body01-regular-font-weight: var(--font-weight-regular);
+  --body01-regular-font-size: 1rem;
+  --body01-regular-line-height: 1.375rem;
+
+  --body02-s-font-weight: var(--font-weight-regular);
+  --body02-s-font-size: 0.875rem;
+  --body02-s-line-height: 1.25rem;
+
+  --body03-regular-font-weight: var(--font-weight-regular);
+  --body03-regular-font-size: 0.75rem;
+  --body03-regular-line-height: 1rem;
+
+  /* Caption Styles */
+  --caption01-font-weight: var(--font-weight-semibold);
+  --caption01-font-size: 0.75rem;
+  --caption01-line-height: 0.875rem;
+
+  --caption02-m-font-weight: var(--font-weight-semibold);
+  --caption02-m-font-size: 0.625rem;
+  --caption02-m-line-height: 0.75rem;
+
+  --caption02-s-font-weight: var(--font-weight-medium);
+  --caption02-s-font-size: 0.625rem;
+  --caption02-s-line-height: 0.75rem;
+
+  --caption03-font-weight: var(--font-weight-semibold);
+  --caption03-font-size: 0.5rem;
+  --caption03-line-height: 0.625rem;
 }
 
 .dark {
-    --background: #1C1C1C;
-    --foreground: #FFFFFF;
+  --background: #1C1C1C;
+  --foreground: #FFFFFF;
 
-    /* 다크모드에서 그라데이션 조정 */
-    --gradient-skeleton: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.2) 48.5%, rgba(0,0,0,0) 100%);
-    
-    /* 다크모드에서 시맨틱 색상 조정 */
-    --primary: var(--blue-40);
-    --error: var(--red-20);
-    --success: var(--green-20);
-    --warning: var(--yellow-20);
-    
-    /* 다크모드에서 타이포그래피 조정 (필요한 경우) */
-    /* 여기서는 타이포그래피는 동일하게 유지 */
-  }
+  /* 다크모드에서 그라데이션 조정 */
+  --gradient-skeleton: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.2) 48.5%, rgba(0,0,0,0) 100%);
+  
+  /* 다크모드에서 시맨틱 색상 조정 */
+  --primary: var(--blue-40);
+  --error: var(--red-20);
+  --success: var(--green-20);
+  --warning: var(--yellow-20);
+}
 
+/* 영문(English) 타이포그래피 설정 */
+:root[data-language="english"] {
+  /* Letter Spacing - Desktop (English) */
+  --letter-spacing-tighter: -0.04em;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.02em;
+  --letter-spacing-wider: 0.04em;
+  --letter-spacing-widest: 0.08em;
+  
+  /* Line Height - Desktop (English) */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.45;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.9;
+}
+
+/* 모바일 타이포그래피 설정 */
 @media (max-width: 768px) {
   :root {
-    /* 모바일에서 타이포그래피 조정 */
-    --font-size-xl: 1.125rem;    /* 18px (더 작게) */
-    --font-size-2xl: 1.375rem;   /* 22px (더 작게) */
-    --font-size-3xl: 1.75rem;    /* 28px (더 작게) */
-    --font-size-4xl: 2rem;       /* 32px (더 작게) */
-    --font-size-5xl: 2.5rem;     /* 40px (더 작게) */
+    /* Font Size - Mobile (Korean & English) */
+    --font-size-xl: 1.125rem;    /* 18px (데스크톱보다 작게) */
+    --font-size-2xl: 1.375rem;   /* 22px (데스크톱보다 작게) */
+    --font-size-3xl: 1.75rem;    /* 28px (데스크톱보다 작게) */
+    --font-size-4xl: 2rem;       /* 32px (데스크톱보다 작게) */
+    --font-size-5xl: 2.5rem;     /* 40px (데스크톱보다 작게) */
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), 'Pretendard', 'SUIT', Arial, Helvetica, sans-serif;
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   font-weight: var(--font-weight-regular);

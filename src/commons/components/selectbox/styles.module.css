@@ -1,0 +1,350 @@
+/* Selectbox Wrapper */
+.selectboxWrapper {
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+
+.selectboxWrapper.full-width {
+  width: 100%;
+}
+
+/* Base Selectbox Styles */
+.selectbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-width: 120px;
+  user-select: none;
+  outline: none;
+}
+
+.selectbox:hover:not(.disabled) {
+  border-color: var(--hover-border-color);
+}
+
+.selectbox:focus:not(.disabled) {
+  border-color: var(--focus-border-color);
+  box-shadow: 0 0 0 2px var(--focus-shadow-color);
+}
+
+.selectbox.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.selectbox.error {
+  border-color: var(--error-color) !important;
+}
+
+.selectbox.full-width {
+  width: 100%;
+}
+
+/* Size Variants */
+.selectbox-small {
+  height: 32px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.selectbox-medium {
+  height: 48px;
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.selectbox-large {
+  height: 56px;
+  padding: 16px 20px;
+  font-size: 18px;
+  line-height: 1.56;
+}
+
+/* Variant Styles */
+.selectbox-primary {
+  --hover-border-color: #ababab;
+  --focus-border-color: #6da5fa;
+  --focus-shadow-color: rgba(109, 165, 250, 0.2);
+}
+
+.selectbox-secondary {
+  --hover-border-color: #93beff;
+  --focus-border-color: #6da5fa;
+  --focus-shadow-color: rgba(109, 165, 250, 0.2);
+}
+
+.selectbox-tertiary {
+  --hover-border-color: #ababab;
+  --focus-border-color: #6da5fa;
+  --focus-shadow-color: rgba(109, 165, 250, 0.2);
+  border-radius: 0;
+}
+
+/* Theme Variants */
+.theme-light {
+  --error-color: #f03851;
+}
+
+.theme-dark {
+  --error-color: #f797a4;
+  --hover-border-color: #777777;
+  --focus-border-color: #6da5fa;
+}
+
+.theme-dark .selectbox-secondary {
+  --hover-border-color: #6da5fa;
+}
+
+/* Selected Text */
+.selectedText {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.selectbox-small .selectedText {
+  font-weight: 400;
+}
+
+/* Arrow Icon */
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+.arrow img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.arrowUp img {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease-in-out;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-small {
+  border-radius: 6px;
+}
+
+.dropdown-medium {
+  border-radius: 8px;
+}
+
+.dropdown-large {
+  border-radius: 10px;
+}
+
+/* Theme-specific dropdown styles */
+.theme-dark .dropdown {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Option List */
+.optionList {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+/* Option Items */
+.option {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  outline: none;
+}
+
+.dropdown-small .option {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.dropdown-medium .option {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.dropdown-large .option {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.option:hover:not(.disabled) {
+  background-color: var(--option-hover-bg);
+}
+
+.option:focus:not(.disabled) {
+  background-color: var(--option-hover-bg);
+}
+
+.option.selected {
+  background-color: var(--option-selected-bg);
+  font-weight: 500;
+}
+
+.option.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Theme-specific option styles */
+.theme-light {
+  --option-hover-bg: #f2f2f2;
+  --option-selected-bg: #f0f7ff;
+}
+
+.theme-dark {
+  --option-hover-bg: #333333;
+  --option-selected-bg: #1530a6;
+}
+
+/* Error Message */
+.errorMessage {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--error-color);
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+/* Scrollbar Styling */
+.dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.theme-dark .dropdown::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.theme-dark .dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .selectbox-small {
+    height: 36px;
+    padding: 6px 12px;
+  }
+  
+  .selectbox-medium {
+    height: 44px;
+    padding: 10px 14px;
+  }
+  
+  .selectbox-large {
+    height: 52px;
+    padding: 14px 18px;
+  }
+  
+  .dropdown {
+    max-height: 160px;
+  }
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown.open {
+  animation: fadeInUp 0.2s ease-out;
+}
+
+/* Focus states for accessibility */
+.selectbox:focus-visible {
+  outline: 2px solid var(--focus-border-color);
+  outline-offset: 2px;
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--focus-border-color);
+  outline-offset: -2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .selectbox {
+    border-width: 2px;
+  }
+  
+  .dropdown {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .selectbox,
+  .arrow,
+  .arrow img,
+  .dropdown,
+  .option {
+    transition: none;
+  }
+  
+  .dropdown.open {
+    animation: none;
+  }
+}
+

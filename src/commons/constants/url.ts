@@ -176,7 +176,7 @@ export const getRouteTypeByPath = (path: string): RouteType | undefined => {
   
   // 정확히 일치하는 경로 찾기
   const exactMatch = Object.entries(ROUTE_INFO).find(
-    ([_, info]) => info.path === normalizedPath
+    ([, info]) => info.path === normalizedPath
   );
   
   if (exactMatch) {
@@ -184,7 +184,7 @@ export const getRouteTypeByPath = (path: string): RouteType | undefined => {
   }
   
   // 동적 라우트 처리 (예: /diaries/123 => /diaries/[id])
-  const dynamicMatch = Object.entries(ROUTE_INFO).find(([_, info]) => {
+  const dynamicMatch = Object.entries(ROUTE_INFO).find(([, info]) => {
     if (!info.path.includes('[')) return false;
     
     const pathPattern = info.path.replace(/\[.*?\]/g, '[^/]+');
@@ -207,7 +207,7 @@ export const getAllRouteTypes = (): RouteType[] => {
  */
 export const getMemberOnlyRouteTypes = (): RouteType[] => {
   return Object.entries(ROUTE_INFO)
-    .filter(([_, info]) => info.accessLevel === AccessLevel.MEMBER_ONLY)
+    .filter(([, info]) => info.accessLevel === AccessLevel.MEMBER_ONLY)
     .map(([type]) => type as RouteType);
 };
 
@@ -216,7 +216,7 @@ export const getMemberOnlyRouteTypes = (): RouteType[] => {
  */
 export const getPublicRouteTypes = (): RouteType[] => {
   return Object.entries(ROUTE_INFO)
-    .filter(([_, info]) => info.accessLevel === AccessLevel.PUBLIC)
+    .filter(([, info]) => info.accessLevel === AccessLevel.PUBLIC)
     .map(([type]) => type as RouteType);
 };
 

@@ -200,9 +200,27 @@
 
 /* button.styles_button-medium__BDALj의 padding 제거, height 48px, width 51px 설정 완료 */
 .retrospectButton {
+  width: 51px !important;
+  height: 48px !important;
+  padding: 0px !important;
+  flex-direction: row !important;
+  text-orientation: mixed !important;
+  writing-mode: horizontal-tb !important;
+}
+
+.customRetrospectButton {
   width: 51px;
   height: 48px;
-  padding: 0px;
+  background-color: var(--gray-black);
+  color: var(--gray-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* padding 제거 완료 */
@@ -221,7 +239,33 @@
 
 /* styles_content__irhZy의 padding 제거, height 48px, width 51px 설정 완료 */
 .retrospectButton :global(.content) {
+  padding: 0 !important;
+  height: 48px !important;
+  width: 51px !important;
+  display: inline-block !important;
+  align-items: center !important;
+  justify-content: center !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  flex-direction: row !important;
+  letter-spacing: normal !important;
+}
+
+.retrospectButton :global(.content)::before {
+  content: '입력';
+  display: inline-block;
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.hiddenText {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   padding: 0;
-  height: 48px;
-  width: 51px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

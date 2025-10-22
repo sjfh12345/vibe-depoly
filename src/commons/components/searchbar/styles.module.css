@@ -1,0 +1,180 @@
+/* Searchbar Container */
+.searchbarContainer {
+  display: flex;
+  width: 100%;
+}
+
+.searchbarContainer.fullWidth {
+  width: 100%;
+}
+
+/* Base Searchbar Styles */
+.searchbar {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid;
+  background-color: transparent;
+  overflow: hidden;
+  width: 100%;
+}
+
+.searchbar.fullWidth {
+  width: 100%;
+}
+
+/* Disabled State */
+.searchbar.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.searchbar.disabled .input {
+  cursor: not-allowed;
+}
+
+.searchbar.disabled .searchIcon {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Input Styles */
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 0;
+  margin: 0;
+}
+
+.input::placeholder {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Search Icon */
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Size Variants */
+.size-small {
+  height: 36px;
+  padding: 0 12px;
+  gap: 8px;
+}
+
+.size-small .input {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.size-small .searchIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.size-medium {
+  height: 48px;
+  padding: 0 16px;
+  gap: 12px;
+}
+
+.size-medium .input {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.size-medium .searchIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.size-large {
+  height: 56px;
+  padding: 0 20px;
+  gap: 16px;
+}
+
+.size-large .input {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.size-large .searchIcon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Theme styles are now handled via inline styles using colors constants */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .size-large {
+    height: 48px;
+    padding: 0 16px;
+    gap: 12px;
+  }
+  
+  .size-large .input {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .size-large .searchIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .size-medium {
+    height: 44px;
+    padding: 0 14px;
+    gap: 10px;
+  }
+  
+  .size-medium .input {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  
+  .size-medium .searchIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  /* No animations to disable */
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .theme-light.variant-primary {
+    border-color: #000000;
+  }
+  
+  .theme-light.variant-primary .input::placeholder {
+    color: #666666;
+  }
+  
+  .theme-dark.variant-primary {
+    border-color: #FFFFFF;
+  }
+  
+  .theme-dark.variant-primary .input::placeholder {
+    color: #CCCCCC;
+  }
+}

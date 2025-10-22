@@ -145,14 +145,13 @@ const DiariesDetail = () => {
             size="medium"
             className={styles.retrospectInputField}
           />
-          <Button 
-            variant="primary"
-            size="medium"
+          <button 
+            type="button"
             onClick={handleRetrospectSubmit}
-            className={styles.retrospectButton}
+            className={styles.customRetrospectButton}
           >
             입력
-          </Button>
+          </button>
         </div>
       </div>
       

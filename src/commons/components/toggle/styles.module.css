@@ -1,0 +1,136 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggleInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.toggleSlider {
+  display: flex;
+  align-items: center;
+  border-radius: 100px; /* 피그마 디자인 기준으로 변경 */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+/* 체크박스 체크 여부에 따라 justify-content 변경 */
+.toggleSlider {
+  justify-content: flex-start; /* 기본 상태(꺼짐): 원이 왼쪽에 위치 */
+}
+
+input:checked + .toggleSlider {
+  justify-content: flex-end; /* 체크된 상태(켜짐): 원이 오른쪽에 위치 */
+}
+
+/* 원형 노브 */
+.toggleSlider::after {
+  content: "";
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* 크기 고정 */
+  background-color: #FFFFFF; /* 원 색상 */
+}
+
+/* Size 변형 - 피그마 디자인 기준 */
+.small .toggleSlider {
+  width: 42px;
+  height: 24px;
+}
+
+.small .toggleSlider::after {
+  width: 18px;
+  height: 18px;
+}
+
+.medium .toggleSlider {
+  width: 58px; /* 피그마 디자인 너비 */
+  height: 32px; /* 피그마 디자인 높이 */
+}
+
+.medium .toggleSlider::after {
+  width: 24px; /* 피그마 디자인 원 크기 */
+  height: 24px;
+}
+
+.large .toggleSlider {
+  width: 70px;
+  height: 38px;
+}
+
+.large .toggleSlider::after {
+  width: 30px;
+  height: 30px;
+}
+
+/* Variant - Primary */
+.primary .toggleSlider {
+  background-color: #E4E4E4; /* gray.10 - 피그마 디자인 꺼짐 상태 색상 */
+}
+
+.primary input:checked + .toggleSlider {
+  background-color: #3A5CF3; /* blue.60 */
+}
+
+/* Variant - Secondary */
+.secondary .toggleSlider {
+  background-color: #D4D3D3; /* gray.20 */
+}
+
+.secondary input:checked + .toggleSlider {
+  background-color: #497CFF; /* blue.50 */
+}
+
+/* Variant - Tertiary */
+.tertiary .toggleSlider {
+  background-color: #C7C7C7; /* gray.30 */
+}
+
+.tertiary input:checked + .toggleSlider {
+  background-color: #3ad84a; /* 피그마 디자인 켜짐 상태 색상 */
+}
+
+/* 다크 모드 */
+.dark.primary .toggleSlider {
+  background-color: #333333; /* gray.80 */
+}
+
+.dark.primary input:checked + .toggleSlider {
+  background-color: #6DA5FA; /* blue.40 */
+}
+
+.dark.secondary .toggleSlider {
+  background-color: #5F5F5F; /* gray.70 */
+}
+
+.dark.secondary input:checked + .toggleSlider {
+  background-color: #93BEFF; /* blue.30 */
+}
+
+.dark.tertiary .toggleSlider {
+  background-color: #777777; /* gray.60 */
+}
+
+.dark.tertiary input:checked + .toggleSlider {
+  background-color: #3ad84a; /* 피그마 디자인 켜짐 상태 색상 */
+}
+
+/* 비활성화 상태 */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled .toggleSlider {
+  cursor: not-allowed;
+}

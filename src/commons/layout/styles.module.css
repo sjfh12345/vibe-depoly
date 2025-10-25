@@ -25,6 +25,7 @@
   font-weight: var(--font-weight-bold);
   color: var(--gray-black);
   line-height: 16px;
+  cursor: pointer;
 }
 
 .darkModeToggle {
@@ -79,6 +80,7 @@
   line-height: var(--headline01-line-height);
   padding-bottom: 12px;
   border-bottom: 1px solid var(--gray-black);
+  cursor: pointer;
 }
 
 .tabInactive {
@@ -87,6 +89,7 @@
   color: var(--gray-60);
   line-height: var(--headline01-line-height);
   padding-bottom: 12px;
+  cursor: pointer;
 }
 
 /* Main 영역 스타일 */

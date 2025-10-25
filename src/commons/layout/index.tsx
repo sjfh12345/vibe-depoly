@@ -1,16 +1,23 @@
+'use client';
+
 import React from 'react';
 import styles from './styles.module.css';
+import { useLayoutRouting } from './hooks/index.link.routing.hook';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const { navigateToDiaries, navigateToPictures, isDiariesActive, isPicturesActive } = useLayoutRouting();
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="layout-container">
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <div className={styles.logo}>민지의 다이어리</div>
+          <div className={styles.logo} onClick={navigateToDiaries} data-testid="layout-logo">
+            민지의 다이어리
+          </div>
         </div>
       </header>
       
@@ -24,8 +31,20 @@ export default function Layout({ children }: LayoutProps) {
       
       <nav className={styles.navigation}>
         <div className={styles.navTabs}>
-          <div className={styles.tabActive}>일기보관함</div>
-          <div className={styles.tabInactive}>사진보관함</div>
+          <div 
+            className={isDiariesActive ? styles.tabActive : styles.tabInactive}
+            onClick={navigateToDiaries}
+            data-testid="layout-nav-diaries"
+          >
+            일기보관함
+          </div>
+          <div 
+            className={isPicturesActive ? styles.tabActive : styles.tabInactive}
+            onClick={navigateToPictures}
+            data-testid="layout-nav-pictures"
+          >
+            사진보관함
+          </div>
         </div>
       </nav>
       

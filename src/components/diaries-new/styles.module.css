@@ -1,6 +1,8 @@
 .wrapper {
-  width: 640px;
-  height: 560px;
+  width: 100%;
+  max-width: 640px;
+  min-height: 560px;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -9,6 +11,7 @@
   border: 1px solid var(--gray-30);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 24px;
+  overflow-y: auto;
 }
 
 .header {

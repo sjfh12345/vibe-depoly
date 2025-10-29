@@ -5,11 +5,13 @@ import styles from './styles.module.css';
 import Button from '../../commons/components/button';
 import Input from '../../commons/components/input';
 import { EmotionType, EMOTION_INFO } from '../../commons/constants/enum';
+import { useModal } from '../../commons/providers/modal/modal.provider';
 
 export default function DiariesNew() {
   const [selectedEmotion, setSelectedEmotion] = useState<EmotionType | null>(null);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const { closeModal } = useModal();
 
   const handleEmotionSelect = (emotion: EmotionType) => {
     setSelectedEmotion(emotion);
@@ -31,12 +33,16 @@ export default function DiariesNew() {
       content
     });
   };
+  
+  const handleClose = () => {
+    closeModal();
+  };
 
   return (
     <div className={styles.wrapper}>
       {/* 헤더 영역 - full * 24 */}
       <div className={styles.header}>
-        <h2 className={styles.headerTitle}>일기쓰기</h2>
+        <h2 className={styles.headerTitle} data-testid="diaries-new-title">일기쓰기</h2>
       </div>
       
       {/* 첫 번째 gap 영역 - full * 40 */}
@@ -104,6 +110,7 @@ export default function DiariesNew() {
           variant="secondary"
           size="medium"
           className={styles.cancelButton}
+          onClick={handleClose}
         >
           닫기
         </Button>

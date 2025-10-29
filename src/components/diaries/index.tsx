@@ -7,6 +7,7 @@ import Searchbar from '../../commons/components/searchbar';
 import Button from '../../commons/components/button';
 import Pagination from '../../commons/components/pagination';
 import { EmotionType, EMOTION_INFO } from '../../commons/constants/enum';
+import { useDiariesModal } from './hooks/index.link.modal.hook';
 
 // 일기 카드를 위한 인터페이스 정의
 interface DiaryCard {
@@ -96,6 +97,7 @@ export default function Diaries() {
   const [searchValue, setSearchValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // 전체 페이지 수
+  const { openDiaryWriteModal } = useDiariesModal();
   
   const handleFilterChange = (value: string) => {
     setFilterValue(value);
@@ -111,7 +113,7 @@ export default function Diaries() {
     // 페이지 변경 시 필요한 작업 수행
   };
   return (
-    <div className={`${styles.container} ${styles.searchbarHelper} ${styles.leftIconHelper}`}>
+    <div className={`${styles.container} ${styles.searchbarHelper} ${styles.leftIconHelper}`} data-testid="diaries-container">
       {/* 첫 번째 gap 영역 - 32px */}
       <div className={styles.gap}></div>
       
@@ -152,6 +154,8 @@ export default function Diaries() {
               className={styles.writeButton}
               leftIconSrc="/icons/plus_outline_light_m.svg"
               iconSize={14}
+              onClick={openDiaryWriteModal}
+              data-testid="diaries-write-button"
             >
               일기쓰기
             </Button>

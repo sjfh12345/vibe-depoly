@@ -1,0 +1,127 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5] [cursor=pointer]: 민지의 다이어리
+    - navigation [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12] [cursor=pointer]: 일기보관함
+        - generic [ref=e13] [cursor=pointer]: 사진보관함
+    - main [ref=e14]:
+      - generic [ref=e17]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - combobox [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]: 전체
+              - img "dropdown arrow" [ref=e26]
+            - generic [ref=e28]:
+              - button "검색" [ref=e29] [cursor=pointer]:
+                - img "검색" [ref=e30]
+              - textbox "검색어를 입력해 주세요." [ref=e31]
+          - button "left icon 일기쓰기" [ref=e33] [cursor=pointer]:
+            - img "left icon" [ref=e35]
+            - generic [ref=e36]: 일기쓰기
+        - generic [ref=e39]:
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]: 슬퍼요
+              - generic [ref=e46]: 2024. 03. 12
+            - heading "타이틀 영역 입니다. 한줄까지만 노출 됩니다." [level=3] [ref=e48]
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - generic [ref=e54]: 놀랐어요
+              - generic [ref=e55]: 2024. 03. 12
+            - heading "타이틀 영역 입니다." [level=3] [ref=e57]
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: 화나요
+              - generic [ref=e64]: 2024. 03. 12
+            - heading "타이틀 영역 입니다." [level=3] [ref=e66]
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: 행복해요
+              - generic [ref=e73]: 2024. 03. 12
+            - heading "타이틀 영역 입니다." [level=3] [ref=e75]
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: 기타
+              - generic [ref=e82]: 2024. 03. 12
+            - heading "타이틀 영역 입니다. 한줄까지만 노출 됩니다." [level=3] [ref=e84]
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: 놀랐어요
+              - generic [ref=e91]: 2024. 03. 12
+            - heading "타이틀 영역 입니다." [level=3] [ref=e93]
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: 화나요
+              - generic [ref=e100]: 2024. 03. 12
+            - heading "타이틀 영역 입니다." [level=3] [ref=e102]
+          - generic [ref=e106]:
+            - generic [ref=e107]:
+              - generic [ref=e108]: 행복해요
+              - generic [ref=e109]: 2024. 03. 12
+            - heading "타이틀 영역 입니다." [level=3] [ref=e111]
+          - generic [ref=e115]:
+            - generic [ref=e116]:
+              - generic [ref=e117]: 슬퍼요
+              - generic [ref=e118]: 2024. 03. 12
+            - heading "타이틀 영역 입니다. 한줄까지만 노출 됩니다." [level=3] [ref=e120]
+          - generic [ref=e124]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: 기타
+              - generic [ref=e127]: 2024. 03. 12
+            - heading "타이틀 영역 입니다. 한줄까지만 노출 됩니다." [level=3] [ref=e129]
+        - generic [ref=e132]:
+          - button "이전 페이지" [disabled] [ref=e133]:
+            - img "이전" [ref=e134]
+          - generic [ref=e135]:
+            - button "페이지 1" [ref=e136] [cursor=pointer]: "1"
+            - button "페이지 2" [ref=e137] [cursor=pointer]: "2"
+            - button "페이지 3" [ref=e138] [cursor=pointer]: "3"
+            - button "페이지 4" [ref=e139] [cursor=pointer]: "4"
+            - button "페이지 5" [ref=e140] [cursor=pointer]: "5"
+          - button "다음 페이지" [ref=e141] [cursor=pointer]:
+            - img "다음" [ref=e142]
+    - contentinfo [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]: 민지의 다이어리
+        - generic [ref=e147]: "대표 : 홍길동"
+        - generic [ref=e148]: Copyright © 2024. 홍길동 Co., Ltd.
+  - alert [ref=e149]
+  - dialog [ref=e150]:
+    - generic "모달 창" [ref=e151]:
+      - button "닫기" [ref=e152] [cursor=pointer]:
+        - img [ref=e153]
+      - generic [ref=e155]:
+        - heading "모달 창" [level=2] [ref=e156]
+        - generic [ref=e157]:
+          - heading "일기쓰기" [level=2] [ref=e159]
+          - generic [ref=e161]:
+            - paragraph [ref=e162]: 오늘 기분은 어땠나요?
+            - generic [ref=e163]:
+              - generic [ref=e164] [cursor=pointer]:
+                - img "radio" [ref=e166]
+                - generic [ref=e167]: 행복해요
+              - generic [ref=e168] [cursor=pointer]:
+                - img "radio" [ref=e170]
+                - generic [ref=e171]: 슬퍼요
+              - generic [ref=e172] [cursor=pointer]:
+                - img "radio" [ref=e174]
+                - generic [ref=e175]: 화나요
+              - generic [ref=e176] [cursor=pointer]:
+                - img "radio" [ref=e178]
+                - generic [ref=e179]: 놀랐어요
+              - generic [ref=e180] [cursor=pointer]:
+                - img "radio" [ref=e182]
+                - generic [ref=e183]: 기타
+          - textbox "제목을 입력해주세요." [ref=e187]
+          - textbox "내용을 입력해주세요." [ref=e190]
+          - generic [ref=e192]:
+            - button "닫기" [ref=e193] [cursor=pointer]:
+              - generic [ref=e194]: 닫기
+            - button "등록하기" [ref=e195] [cursor=pointer]:
+              - generic [ref=e196]: 등록하기
+```

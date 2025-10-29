@@ -143,11 +143,7 @@
   min-width: 80px;
 }
 
-.cancelButton :global([class*="button-secondary"]) {
-  background-color: #F0F7FF !important; /* blue.05 - 피그마 정확히 일치 */
-  border-color: #BDDBFF !important; /* blue.20 - 피그마 정확히 일치 */
-  color: #3A5CF3 !important; /* blue.60 - 피그마 정확히 일치 */
-}
+/* 기본 스타일을 적용하도록 오버라이드 CSS 제거 */
 
 .saveButton {
   min-width: 100px;

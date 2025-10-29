@@ -69,17 +69,17 @@
 
 /* Secondary 버튼 스타일 */
 .button-secondary.theme-light {
-  background-color: #F0F7FF; /* blue.05 */
-  color: #3A5CF3; /* blue.60 */
-  border: 1px solid #BDDBFF; /* blue.20 */
+  background-color: #FFFFFF; /* 흰색 배경 */
+  color: #777777; /* gray.60 */
+  border: 1px solid #777777; /* gray.60 */
 }
 
 .button-secondary.theme-light:hover:not(:disabled) {
-  background-color: #DBEEFF; /* blue.10 */
+  background-color: #F2F2F2; /* gray.05 */
 }
 
 .button-secondary.theme-light:active:not(:disabled) {
-  background-color: #BDDBFF; /* blue.20 */
+  background-color: #E4E4E4; /* gray.10 */
 }
 
 .button-secondary.theme-dark {

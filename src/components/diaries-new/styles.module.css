@@ -143,6 +143,17 @@
   min-width: 80px;
 }
 
+.cancelButton :global([class*="button-secondary"]) {
+  background-color: #F0F7FF !important; /* blue.05 - 피그마 정확히 일치 */
+  border-color: #BDDBFF !important; /* blue.20 - 피그마 정확히 일치 */
+  color: #3A5CF3 !important; /* blue.60 - 피그마 정확히 일치 */
+}
+
 .saveButton {
   min-width: 100px;
+}
+
+.saveButton :global([class*="button-primary"]) {
+  background-color: #000000 !important; /* 피그마에서 요구하는 검정색 */
+  color: #FFFFFF !important; /* 흰색 */
 }

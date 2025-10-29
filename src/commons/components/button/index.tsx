@@ -1,8 +1,7 @@
-import React, { ButtonHTMLAttributes, useMemo } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import styles from './styles.module.css';
-import colors from '../../../commons/constants/color';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -72,31 +71,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const { theme = 'light' } = useTheme();
-  
-  const buttonStyle = useMemo(() => {
-    const themeColors = theme === 'light' ? colors.light : colors.dark;
-    
-    const variantStyles = {
-      primary: {
-        backgroundColor: theme === 'light' ? themeColors.gray.black : themeColors.blue['40'],
-        color: theme === 'light' ? themeColors.gray.white : themeColors.gray.black,
-        border: 'none',
-      },
-      secondary: {
-        backgroundColor: theme === 'light' ? themeColors.blue['05'] : 'transparent',
-        color: theme === 'light' ? themeColors.blue['60'] : themeColors.blue['40'],
-        border: `1px solid ${theme === 'light' ? themeColors.blue['20'] : themeColors.blue['40']}`,
-      },
-      tertiary: {
-        backgroundColor: 'transparent',
-        color: theme === 'light' ? themeColors.blue['60'] : themeColors.blue['40'],
-        border: 'none',
-      },
-    };
-    
-    return variantStyles[variant];
-  }, [theme, variant]);
-  
+
   const buttonClasses = [
     styles.button,
     styles[`button-${variant}`],
@@ -110,7 +85,6 @@ export const Button = ({
     <button 
       className={buttonClasses}
       disabled={disabled}
-      style={buttonStyle}
       {...props}
     >
       {leftIconSrc && (

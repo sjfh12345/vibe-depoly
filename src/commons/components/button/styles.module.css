@@ -47,11 +47,11 @@
 }
 
 .button-primary.theme-light:hover:not(:disabled) {
-  background-color: #274AE1; /* blue.70 */
+  background-color: #111111; /* hover: slightly lighter black */
 }
 
 .button-primary.theme-light:active:not(:disabled) {
-  background-color: #1530A6; /* blue.80 */
+  background-color: #222222; /* active: deeper black */
 }
 
 .button-primary.theme-dark {

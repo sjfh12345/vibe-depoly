@@ -48,7 +48,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Info_Single: Story = {
+export const InfoSingle: Story = {
   args: {
     title: '안내',
     content: '정보 메시지를 표시하는 모달입니다.',
@@ -59,7 +59,7 @@ export const Info_Single: Story = {
   },
 };
 
-export const Info_Dual: Story = {
+export const InfoDual: Story = {
   args: {
     title: '안내',
     content: '정보 메시지를 표시하는 모달입니다.',
@@ -71,7 +71,7 @@ export const Info_Dual: Story = {
   },
 };
 
-export const Danger_Single: Story = {
+export const DangerSingle: Story = {
   args: {
     title: '경고',
     content: '위험한 작업을 수행합니다. 계속하시겠습니까?',
@@ -82,7 +82,7 @@ export const Danger_Single: Story = {
   },
 };
 
-export const Danger_Dual: Story = {
+export const DangerDual: Story = {
   args: {
     title: '경고',
     content: '위험한 작업을 수행합니다. 계속하시겠습니까?',
@@ -94,7 +94,7 @@ export const Danger_Dual: Story = {
   },
 };
 
-export const Dark_Info_Single: Story = {
+export const DarkInfoSingle: Story = {
   args: {
     title: '다크 모드 안내',
     content: '다크 모드에서의 정보 메시지입니다.',
@@ -105,7 +105,7 @@ export const Dark_Info_Single: Story = {
   },
 };
 
-export const Dark_Info_Dual: Story = {
+export const DarkInfoDual: Story = {
   args: {
     title: '다크 모드 안내',
     content: '다크 모드에서의 정보 메시지입니다.',
@@ -117,7 +117,7 @@ export const Dark_Info_Dual: Story = {
   },
 };
 
-export const Dark_Danger_Single: Story = {
+export const DarkDangerSingle: Story = {
   args: {
     title: '다크 모드 경고',
     content: '다크 모드에서의 위험한 작업을 수행합니다. 계속하시겠습니까?',
@@ -128,7 +128,7 @@ export const Dark_Danger_Single: Story = {
   },
 };
 
-export const Dark_Danger_Dual: Story = {
+export const DarkDangerDual: Story = {
   args: {
     title: '다크 모드 경고',
     content: '다크 모드에서의 위험한 작업을 수행합니다. 계속하시겠습니까?',

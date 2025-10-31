@@ -211,3 +211,4 @@ npx playwright show-report
 **결과**: ✅ 성공 (15 passed, 12 skipped, 0 failed)
 
 
+

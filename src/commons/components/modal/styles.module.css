@@ -1,0 +1,103 @@
+.modal {
+  width: 480px;
+  border-radius: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* 테마 스타일 */
+/* 테마 배경 색상 - gray.white, gray.90 */
+.theme-light {
+  background-color: #FFFFFF;
+}
+
+.theme-dark {
+  background-color: #1C1C1C;
+}
+
+/* 컨텐츠 영역 */
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 432px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Pretendard Variable', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  text-align: center;
+  margin: 0;
+}
+
+/* 제목 색상 - gray.black, gray.white */
+.theme-light .title {
+  color: #000000;
+}
+
+.theme-dark .title {
+  color: #FFFFFF;
+}
+
+.content {
+  font-family: 'Pretendard Variable', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  text-align: center;
+  margin: 0;
+}
+
+/* 내용 색상 - gray.80, gray.05 */
+.theme-light .content {
+  color: #333333;
+}
+
+.theme-dark .content {
+  color: #F2F2F2;
+}
+
+/* 버튼 컨테이너 */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 21px;
+  padding: 0 24px;
+}
+
+/* 버튼 스타일 */
+.cancelButton {
+  width: 104px;
+}
+
+.confirmButton {
+  width: 104px;
+}
+
+/* 버튼 하나일 때는 전체 너비로 */
+.actions-single .confirmButton {
+  width: 432px;
+}
+
+/* variant 스타일 */
+
+.variant-info {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* danger 변형 색상 - semantic.error 또는 red.30, red.20 */
+.variant-danger.theme-light .title {
+  color: #F03851; /* red.30 */
+}
+
+.variant-danger.theme-dark .title {
+  color: #F4677A; /* red.20 */
+}

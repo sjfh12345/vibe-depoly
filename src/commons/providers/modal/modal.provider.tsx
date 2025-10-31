@@ -83,6 +83,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
             }}
             aria-modal="true"
             role="dialog"
+            aria-label="닫기"
           >
             <div
               className={`relative bg-white dark:bg-gray-800 rounded-lg shadow-lg transition-all duration-300 ${

@@ -6,6 +6,11 @@ const meta = {
   component: Modal,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: '모달 컴포넌트는 사용자에게 중요한 정보를 표시하거나 특정 작업의 확인을 요청하는 데 사용됩니다. 모달은 info 또는 danger 스타일로 표시될 수 있으며, 단일 버튼 또는 이중 버튼 액션을 지원합니다.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -49,6 +54,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InfoSingle: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '기본적인 정보 모달로, 단일 확인 버튼을 제공합니다.',
+      },
+    },
+  },
   args: {
     title: '안내',
     content: '정보 메시지를 표시하는 모달입니다.',
@@ -60,6 +72,13 @@ export const InfoSingle: Story = {
 };
 
 export const InfoDual: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '정보 모달로, 확인 및 취소 두 개의 버튼을 제공합니다.',
+      },
+    },
+  },
   args: {
     title: '안내',
     content: '정보 메시지를 표시하는 모달입니다.',
@@ -72,6 +91,13 @@ export const InfoDual: Story = {
 };
 
 export const DangerSingle: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '위험한 작업을 알리는 경고 모달로, 단일 확인 버튼을 제공합니다.',
+      },
+    },
+  },
   args: {
     title: '경고',
     content: '위험한 작업을 수행합니다. 계속하시겠습니까?',
@@ -83,6 +109,13 @@ export const DangerSingle: Story = {
 };
 
 export const DangerDual: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '위험한 작업을 알리는 경고 모달로, 삭제와 취소 버튼을 제공합니다.',
+      },
+    },
+  },
   args: {
     title: '경고',
     content: '위험한 작업을 수행합니다. 계속하시겠습니까?',

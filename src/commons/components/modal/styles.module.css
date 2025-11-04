@@ -1,5 +1,6 @@
 .modal {
-  width: 480px;
+  width: 100%;
+  max-width: 480px;
   border-radius: 24px;
   padding: 24px;
   box-sizing: border-box;
@@ -23,7 +24,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 432px;
+  width: 100%;
+  max-width: 432px;
   margin: 0 auto;
 }
 
@@ -76,15 +78,20 @@
 /* 버튼 스타일 */
 .cancelButton {
   width: 104px;
+  min-width: 104px;
+  font-size: 15px;
 }
 
 .confirmButton {
   width: 104px;
+  min-width: 104px;
+  font-size: 15px;
 }
 
 /* 버튼 하나일 때는 전체 너비로 */
 .actions-single .confirmButton {
-  width: 432px;
+  width: 100%;
+  max-width: 432px;
 }
 
 /* variant 스타일 */
@@ -100,4 +107,13 @@
 
 .variant-danger.theme-dark .title {
   color: #F4677A; /* red.20 */
+}
+
+/* danger 버튼 스타일 */
+.variant-danger .buttonContainer .confirmButton {
+  background-color: #F03851; /* red.30 */
+}
+
+.variant-danger.theme-dark .buttonContainer .confirmButton {
+  background-color: #F4677A; /* red.20 */
 }

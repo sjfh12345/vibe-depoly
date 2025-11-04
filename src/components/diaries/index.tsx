@@ -113,7 +113,7 @@ export default function Diaries() {
     // 페이지 변경 시 필요한 작업 수행
   };
   return (
-    <div className={`${styles.container} ${styles.searchbarHelper} ${styles.leftIconHelper}`} data-testid="diaries-container">
+    <div className={`${styles.container} ${styles.searchbarHelper} ${styles.leftIconHelper}`} data-testid="diaries-page-content">
       {/* 첫 번째 gap 영역 - 32px */}
       <div className={styles.gap}></div>
       
@@ -155,7 +155,7 @@ export default function Diaries() {
               leftIconSrc="/icons/plus_outline_light_m.svg"
               iconSize={14}
               onClick={openDiaryWriteModal}
-              data-testid="diaries-write-button"
+              data-testid="diary-new-button"
             >
               일기쓰기
             </Button>

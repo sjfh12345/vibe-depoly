@@ -1,19 +1,12 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import styles from './styles.module.css';
 import Image from 'next/image';
 import Button from '../../commons/components/button';
 import Input from '../../commons/components/input';
-import { EmotionType, getEmotionInfo } from '../../commons/constants/enum';
-
-interface DiaryData {
-  id: number;
-  title: string;
-  content: string;
-  emotionType: EmotionType;
-  createdAt: string;
-}
+import { getEmotionInfo } from '../../commons/constants/enum';
+import { useDiaryBinding } from './hooks/index.binding.hook';
 
 interface RetrospectItem {
   id: number;
@@ -21,16 +14,8 @@ interface RetrospectItem {
   createdAt: string;
 }
 
-const mockData: DiaryData = {
-  id: 1,
-  title: '이것은 타이틀 입니다.',
-  content: '내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다',
-  emotionType: EmotionType.HAPPY,
-  createdAt: '2024. 07. 12',
-};
-
 const DiariesDetail = () => {
-  const emotionInfo = getEmotionInfo(mockData.emotionType);
+  const { diary, isLoading } = useDiaryBinding();
   const [retrospectInput, setRetrospectInput] = useState('');
   const [retrospects, setRetrospects] = useState<RetrospectItem[]>([
     {
@@ -44,9 +29,32 @@ const DiariesDetail = () => {
       createdAt: '2024. 07. 14'
     }
   ]);
+
+  // 로딩 중이거나 일기가 없을 때
+  if (isLoading || !diary) {
+    return (
+      <div className={`${styles.container} ${styles.main}`} data-testid="diary-detail-page">
+        <div className={styles.gap}></div>
+        <div>로딩 중...</div>
+      </div>
+    );
+  }
+
+  const emotionInfo = getEmotionInfo(diary.emotion);
+
+  // createdAt을 날짜 형식으로 변환 (ISO 형식 -> YYYY. MM. DD 형식)
+  const formatDate = (isoString: string): string => {
+    const date = new Date(isoString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}. ${month}. ${day}`;
+  };
+
+  const formattedDate = formatDate(diary.createdAt);
   
   const handleCopyContent = () => {
-    navigator.clipboard.writeText(mockData.content);
+    navigator.clipboard.writeText(diary.content);
     alert('내용이 클립보드에 복사되었습니다.');
   };
   
@@ -68,12 +76,12 @@ const DiariesDetail = () => {
   };
 
   return (
-    <div className={`${styles.container} ${styles.main}`}>
+    <div className={`${styles.container} ${styles.main}`} data-testid="diary-detail-page">
       <div className={styles.gap}></div>
       
       <div className={styles.detailTitle}>
         <div className={styles.titleSection}>
-          <h2 className={styles.title}>{mockData.title}</h2>
+          <h2 className={styles.title} data-testid="diary-detail-title">{diary.title}</h2>
         </div>
         <div className={styles.emotionSection}>
           <div className={styles.emotionInfo}>
@@ -81,12 +89,13 @@ const DiariesDetail = () => {
               src={emotionInfo.images.small} 
               alt={emotionInfo.label} 
               width={32} 
-              height={32} 
+              height={32}
+              data-testid="diary-detail-emotion-image"
             />
-            <span className={styles.emotionLabel}>{emotionInfo.label}</span>
+            <span className={styles.emotionLabel} data-testid="diary-detail-emotion-label">{emotionInfo.label}</span>
           </div>
           <div className={styles.dateInfo}>
-            <span className={styles.date}>{mockData.createdAt}</span>
+            <span className={styles.date} data-testid="diary-detail-created-at">{formattedDate}</span>
             <span className={styles.dateLabel}>작성</span>
           </div>
         </div>
@@ -97,7 +106,7 @@ const DiariesDetail = () => {
       <div className={styles.detailContent}>
         <div className={styles.contentArea}>
           <p className={styles.contentLabel}>내용</p>
-          <p className={styles.contentText}>{mockData.content}</p>
+          <p className={styles.contentText} data-testid="diary-detail-content">{diary.content}</p>
         </div>
         <div className={styles.contentActions}>
           <button className={styles.copyButton} onClick={handleCopyContent}>

@@ -5,7 +5,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기 (data-testid 사용)
-    await page.waitForSelector('[data-testid="diaries-container"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭
     const writeButton = page.getByRole('button', { name: '일기쓰기' });
@@ -27,7 +27,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="diaries-container"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭하여 모달 열기
     const writeButton = page.getByRole('button', { name: '일기쓰기' });
@@ -48,7 +48,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="diaries-container"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭하여 모달 열기
     const writeButton = page.getByRole('button', { name: '일기쓰기' });
@@ -69,7 +69,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="diaries-container"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭하여 모달 열기
     const writeButton = page.getByRole('button', { name: '일기쓰기' });

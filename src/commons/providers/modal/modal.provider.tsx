@@ -6,6 +6,7 @@ import { createPortal } from "react-dom";
 interface ModalContextType {
   openModal: (content: ReactNode) => void;
   closeModal: () => void;
+  closeAllModals: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
@@ -19,7 +20,7 @@ export const useModal = () => {
 };
 
 export default function ModalProvider({ children }: { children: ReactNode }) {
-  const [modalContent, setModalContent] = useState<ReactNode | null>(null);
+  const [modalStack, setModalStack] = useState<ReactNode[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [previousFocus, setPreviousFocus] = useState<HTMLElement | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -27,7 +28,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
   const openModal = (content: ReactNode) => {
     setPreviousFocus(document.activeElement as HTMLElement);
     setIsAnimating(true);
-    setModalContent(content);
+    setModalStack(prevStack => [...prevStack, content]);
     setIsOpen(true);
     document.body.style.overflow = "hidden";
     setTimeout(() => {
@@ -36,6 +37,27 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
   };
 
   const closeModal = () => {
+    if (modalStack.length === 0) return;
+    
+    setIsAnimating(true);
+    setTimeout(() => {
+      setModalStack(prevStack => prevStack.slice(0, -1));
+      
+      if (modalStack.length <= 1) {
+        setIsOpen(false);
+        document.body.style.overflow = "";
+        if (previousFocus) {
+          previousFocus.focus();
+        }
+      }
+      
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 300);
+    }, 300);
+  };
+  
+  const closeAllModals = () => {
     setIsAnimating(true);
     setTimeout(() => {
       setIsOpen(false);
@@ -44,7 +66,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
         previousFocus.focus();
       }
       setTimeout(() => {
-        setModalContent(null);
+        setModalStack([]);
         setIsAnimating(false);
       }, 300);
     }, 300);
@@ -69,7 +91,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
   }, [isOpen, handleKeyDown]);
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal }}>
+    <ModalContext.Provider value={{ openModal, closeModal, closeAllModals }}>
       {children}
       {isOpen &&
         typeof window !== "undefined" &&
@@ -94,7 +116,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
             >
   
               
-                {modalContent}
+                {modalStack.length > 0 && modalStack[modalStack.length - 1]}
 
             </div>
           </div>,

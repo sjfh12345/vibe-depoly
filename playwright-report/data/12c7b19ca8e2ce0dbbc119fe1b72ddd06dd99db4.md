@@ -20,7 +20,7 @@
               - button "검색" [ref=e29] [cursor=pointer]:
                 - img "검색" [ref=e30]
               - textbox "검색어를 입력해 주세요." [ref=e31]
-          - button "left icon 일기쓰기" [active] [ref=e33] [cursor=pointer]:
+          - button "left icon 일기쓰기" [ref=e33] [cursor=pointer]:
             - img "left icon" [ref=e35]
             - generic [ref=e36]: 일기쓰기
         - generic [ref=e39]:
@@ -91,37 +91,47 @@
         - generic [ref=e147]: "대표 : 홍길동"
         - generic [ref=e148]: Copyright © 2024. 홍길동 Co., Ltd.
   - alert [ref=e149]
-  - dialog [ref=e150]:
-    - generic "모달 창" [ref=e151]:
-      - button "닫기" [ref=e152] [cursor=pointer]:
-        - img [ref=e153]
+  - dialog "닫기" [ref=e150]:
+    - generic [ref=e152]:
+      - heading "일기 쓰기" [level=2] [ref=e154]
       - generic [ref=e155]:
-        - heading "모달 창" [level=2] [ref=e156]
-        - generic [ref=e157]:
-          - heading "일기쓰기" [level=2] [ref=e159]
-          - generic [ref=e161]:
-            - paragraph [ref=e162]: 오늘 기분은 어땠나요?
-            - generic [ref=e163]:
-              - generic [ref=e164] [cursor=pointer]:
-                - img "radio" [ref=e166]
-                - generic [ref=e167]: 행복해요
-              - generic [ref=e168] [cursor=pointer]:
-                - img "radio" [ref=e170]
-                - generic [ref=e171]: 슬퍼요
-              - generic [ref=e172] [cursor=pointer]:
-                - img "radio" [ref=e174]
-                - generic [ref=e175]: 화나요
-              - generic [ref=e176] [cursor=pointer]:
-                - img "radio" [ref=e178]
-                - generic [ref=e179]: 놀랐어요
-              - generic [ref=e180] [cursor=pointer]:
-                - img "radio" [ref=e182]
-                - generic [ref=e183]: 기타
-          - textbox "제목을 입력해주세요." [ref=e187]
-          - textbox "내용을 입력해주세요." [ref=e190]
-          - generic [ref=e192]:
-            - button "닫기" [ref=e193] [cursor=pointer]:
-              - generic [ref=e194]: 닫기
-            - button "등록하기" [ref=e195] [cursor=pointer]:
-              - generic [ref=e196]: 등록하기
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: 오늘 기분은 어땟나요?
+          - generic [ref=e158]:
+            - generic [ref=e159] [cursor=pointer]:
+              - img "radio" [ref=e161]
+              - generic [ref=e162]: 행복해요
+            - generic [ref=e163] [cursor=pointer]:
+              - img "radio" [ref=e165]
+              - generic [ref=e166]: 슬퍼요
+            - generic [ref=e167] [cursor=pointer]:
+              - img "radio" [ref=e169]
+              - generic [ref=e170]: 화나요
+            - generic [ref=e171] [cursor=pointer]:
+              - img "radio" [ref=e173]
+              - generic [ref=e174]: 놀랐어요
+            - generic [ref=e175] [cursor=pointer]:
+              - img "radio" [ref=e177]
+              - generic [ref=e178]: 기타
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - generic [ref=e181]: 제목
+            - textbox "제목을 입력합니다." [ref=e184]
+          - generic [ref=e185]:
+            - generic [ref=e186]: 내용
+            - textbox "내용을 입력합니다." [ref=e188]
+      - generic [ref=e189]:
+        - button "닫기" [active] [ref=e190] [cursor=pointer]:
+          - generic [ref=e191]: 닫기
+        - button "등록하기" [disabled] [ref=e192]:
+          - generic [ref=e193]: 등록하기
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - heading "일기 작성 취소" [level=2] [ref=e198]
+          - paragraph [ref=e199]: 일기 작성을 취소하시겠습니까? 작성하신 내용은 저장되지 않습니다.
+        - generic [ref=e200]:
+          - button "계속 작성" [ref=e201] [cursor=pointer]:
+            - generic [ref=e202]: 계속 작성
+          - button "등록 취소" [ref=e203] [cursor=pointer]:
+            - generic [ref=e204]: 등록 취소
 ```

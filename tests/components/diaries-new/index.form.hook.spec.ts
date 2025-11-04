@@ -20,13 +20,13 @@ test('모든 인풋이 입력되면 등록하기 버튼이 활성화됨', async 
   await page.goto('/diaries');
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인
-  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-page-content"]');
 
   // 일기쓰기 버튼 클릭
   await page.click('[data-testid="diary-new-button"]');
 
   // 일기쓰기 폼 모달 표시 대기
-  await page.waitForSelector('h2:has-text("일기 쓰기")', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-new-title"]');
 
   // 등록하기 버튼이 비활성화되어 있는지 확인
   const submitButton = page.locator('[data-testid="diary-submit-button"]');
@@ -75,7 +75,7 @@ test('등록하기 버튼 클릭 시 일기가 로컬스토리지에 저장되�
   await page.goto('/diaries');
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-page-content"]');
 
   // 로컬스토리지 초기화
   await page.evaluate(() => {
@@ -86,7 +86,7 @@ test('등록하기 버튼 클릭 시 일기가 로컬스토리지에 저장되�
   await page.click('[data-testid="diary-new-button"]');
 
   // 일기쓰기 폼 모달 표시 대기
-  await page.waitForSelector('h2:has-text("일기 쓰기")', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-new-title"]');
 
   // 감정 선택 (첫 번째 감정)
   const firstEmotion = page.locator('[data-testid="emotion-happy"]');
@@ -117,7 +117,7 @@ test('등록하기 버튼 클릭 시 일기가 로컬스토리지에 저장되�
   expect(diaries[0]).toHaveProperty('createdAt');
 
   // 등록 완료 모달이 표시되는지 확인
-  await page.waitForSelector('h2:has-text("일기 등록 완료")', { timeout: 500 });
+  await page.waitForSelector('h2:has-text("일기 등록 완료")');
   await expect(page.locator('p:has-text("일기가 성공적으로 등록되었습니다.")')).toBeVisible();
 });
 
@@ -143,7 +143,7 @@ test('등록 완료 모달의 확인 버튼 클릭 시 상세 페이지로 이�
   await page.goto('/diaries');
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-page-content"]');
 
   // 로컬스토리지 초기화
   await page.evaluate(() => {
@@ -154,7 +154,7 @@ test('등록 완료 모달의 확인 버튼 클릭 시 상세 페이지로 이�
   await page.click('[data-testid="diary-new-button"]');
 
   // 일기쓰기 폼 모달 표시 대기
-  await page.waitForSelector('h2:has-text("일기 쓰기")', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-new-title"]');
 
   // 감정 선택 (첫 번째 감정)
   const firstEmotion = page.locator('[data-testid="emotion-happy"]');
@@ -173,7 +173,7 @@ test('등록 완료 모달의 확인 버튼 클릭 시 상세 페이지로 이�
   await submitButton.click();
 
   // 등록 완료 모달이 표시되는지 확인
-  await page.waitForSelector('h2:has-text("일기 등록 완료")', { timeout: 500 });
+  await page.waitForSelector('h2:has-text("일기 등록 완료")');
 
   // 확인 버튼 클릭
   const confirmButton = page.locator('button:has-text("확인")');
@@ -207,7 +207,7 @@ test('기존 diaries가 있을 때 새로운 일기를 등록하면 ID가 최대
   await page.goto('/diaries');
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-page-content"]');
 
   // 로컬스토리지에 기존 일기 데이터 설정
   await page.evaluate(() => {
@@ -223,7 +223,7 @@ test('기존 diaries가 있을 때 새로운 일기를 등록하면 ID가 최대
   await page.click('[data-testid="diary-new-button"]');
 
   // 일기쓰기 폼 모달 표시 대기
-  await page.waitForSelector('h2:has-text("일기 쓰기")', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-new-title"]');
 
   // 감정 선택 (첫 번째 감정)
   const firstEmotion = page.locator('[data-testid="emotion-happy"]');

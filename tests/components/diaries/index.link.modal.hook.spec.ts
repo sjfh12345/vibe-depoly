@@ -8,15 +8,14 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭
-    const writeButton = page.getByRole('button', { name: '일기쓰기' });
-    await writeButton.click();
+    await page.click('[data-testid="diary-new-button"]');
     
     // 모달이 표시되는지 확인 (modal provider의 overlay 확인)
     const modalOverlay = page.locator('[role="dialog"]');
     await expect(modalOverlay).toBeVisible();
     
     // 모달 안의 제목 텍스트가 표시되는지 확인 (heading role 사용)
-    await expect(page.getByRole('heading', { name: '일기쓰기' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '일기 쓰기' })).toBeVisible();
     
     // 모달 닫기 버튼 확인
     const closeButton = page.locator('[aria-label="닫기"]');
@@ -30,8 +29,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭하여 모달 열기
-    const writeButton = page.getByRole('button', { name: '일기쓰기' });
-    await writeButton.click();
+    await page.click('[data-testid="diary-new-button"]');
     
     // 모달이 열렸는지 확인
     const modalOverlay = page.locator('[role="dialog"]');
@@ -51,8 +49,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭하여 모달 열기
-    const writeButton = page.getByRole('button', { name: '일기쓰기' });
-    await writeButton.click();
+    await page.click('[data-testid="diary-new-button"]');
     
     // 모달이 열렸는지 확인
     const modalOverlay = page.locator('[role="dialog"]');
@@ -72,16 +69,20 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.waitForSelector('[data-testid="diaries-page-content"]');
     
     // 일기쓰기 버튼 클릭하여 모달 열기
-    const writeButton = page.getByRole('button', { name: '일기쓰기' });
-    await writeButton.click();
+    await page.click('[data-testid="diary-new-button"]');
     
     // 모달이 열렸는지 확인
     const modalOverlay = page.locator('[role="dialog"]');
     await expect(modalOverlay).toBeVisible();
     
-    // 모달 내부의 닫기 버튼 클릭 (일기쓰기 폼의 닫기 버튼 - secondary 버튼)
-    const closeButton = modalOverlay.locator('button[class*="button-secondary"]').filter({ hasText: '닫기' });
-    await closeButton.click();
+    // 모달 내부의 닫기 버튼 클릭 (data-testid 사용)
+    await page.click('[data-testid="diary-close-button"]');
+    
+    // 취소 확인 모달이 열렸는지 확인
+    await page.waitForSelector('[data-testid="diary-cancel-modal-title"]');
+    
+    // 취소 모달에서 "등록 취소" 버튼 클릭
+    await page.click('button:has-text("등록 취소")');
     
     // 모달이 닫혔는지 확인
     await expect(modalOverlay).not.toBeVisible();

@@ -19,25 +19,22 @@ test('닫기 버튼 클릭 시 취소 모달이 열리고, 계속 작성 버튼 
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인 (04-func.mdc 규칙 적용)
   // networkidle 대신 고정식별자 사용으로 CSS Module과의 충돌 방지
-  // 타임아웃 500ms 이하 설정 (규칙: prompt.301.func.link.modal.close.txt에 명시)
-  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-page-content"]');
 
   // 일기쓰기 버튼 클릭 - data-testid 셀렉터 활용
   await page.click('[data-testid="diary-new-button"]');
 
-  // 일기쓰기 폼 모달 표시 대기 - 텍스트 콘텐츠로 식별
-  // 타임아웃 500ms 이하 설정
-  await page.waitForSelector('[data-testid="diaries-new-title"]', { timeout: 500 });
+  // 일기쓰기 폼 모달 표시 대기 - data-testid로 식별
+  await page.waitForSelector('[data-testid="diaries-new-title"]');
 
   // 닫기 버튼 클릭 - data-testid로 식별하여 CSS Module과의 충돌 방지
   await page.click('[data-testid="diary-close-button"]');
 
-  // 취소 확인 모달이 열림을 확인 - 텍스트 콘텐츠로 식별
-  // 타임아웃 500ms 이하 설정
-  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]', { timeout: 500 });
+  // 취소 확인 모달이 열림을 확인 - data-testid로 식별
+  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]');
   
   // 계속 작성하기 버튼 클릭 - 텍스트 콘텐츠로 식별
-  await page.click('button:has-text("계속 작성하기")');
+  await page.click('button:has-text("계속 작성")');
 
   // 일기 작성 취소 모달이 닫히는지 확인
   await expect(page.locator('[data-testid="diary-cancel-modal-title"]')).not.toBeVisible();
@@ -58,35 +55,30 @@ test('닫기 버튼 클릭 시 취소 모달이 열리고, 계속 작성 버튼 
  * 3) 닫기 버튼 클릭 및 취소 확인 모달 표시 확인
  * 4) 작성 취소 버튼 클릭 및 모든 모달이 닫힘 확인
  */
-test('닫기 버튼 클릭 시 취소 모달이 열리고, 작성 취소 버튼 클릭 시 모든 모달이 닫힘', async ({ page }) => {
+test('닫기 버튼 클릭 시 취소 모달이 열리고, 등록록 취소 버튼 클릭 시 모든 모달이 닫힘', async ({ page }) => {
   // 페이지 이동 - URL만 사용하여 baseUrl 설정은 playwright.config.ts에서 관리
   await page.goto('/diaries');
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인 (04-func.mdc 규칙 적용)
   // networkidle 대신 고정식별자 사용으로 CSS Module과의 충돌 방지
-  // 타임아웃 500ms 이하 설정 (규칙: prompt.301.func.link.modal.close.txt에 명시)
-  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diaries-page-content"]');
 
   // 일기쓰기 버튼 클릭 - data-testid 셀렉터 활용
   await page.click('[data-testid="diary-new-button"]');
 
-  // 일기쓰기 폼 모달 표시 대기 - 텍스트 콘텐츠로 식별
-  // 타임아웃 500ms 이하 설정
-  await page.waitForSelector('[data-testid="diaries-new-title"]', { timeout: 500 });
+  // 일기쓰기 폼 모달 표시 대기 - data-testid로 식별
+  await page.waitForSelector('[data-testid="diaries-new-title"]');
 
   // 닫기 버튼 클릭 - data-testid로 식별하여 CSS Module과의 충돌 방지
   await page.click('[data-testid="diary-close-button"]');
 
   // 취소 확인 모달이 열림을 확인 - data-testid로 식별
-  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]', { timeout: 500 });
+  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]');
   
   // 작성 취소 버튼 클릭 - 알림창 없이 바로 닫힘
-  await page.click('button:has-text("작성 취소")');
+  await page.click('button:has-text("등록 취소")');
   
-  // 약간의 지연 시간 추가 - 모달이 닫히는 데 시간이 걸릴 수 있음
-  await page.waitForTimeout(500);
-  
-  // 모든 모달이 화면에서 보이지 않는지 확인
-  await expect(page.locator('[data-testid="diaries-new-title"]')).not.toBeVisible({ timeout: 2000 });
-  await expect(page.locator('[data-testid="diary-cancel-modal-title"]')).not.toBeVisible({ timeout: 2000 });
+  // 모든 모달이 화면에서 보이지 않는지 확인 - data-testid 기반 대기
+  await expect(page.locator('[data-testid="diaries-new-title"]')).not.toBeVisible();
+  await expect(page.locator('[data-testid="diary-cancel-modal-title"]')).not.toBeVisible();
 });

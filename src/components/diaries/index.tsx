@@ -6,91 +6,9 @@ import Selectbox from '../../commons/components/selectbox';
 import Searchbar from '../../commons/components/searchbar';
 import Button from '../../commons/components/button';
 import Pagination from '../../commons/components/pagination';
-import { EmotionType, EMOTION_INFO } from '../../commons/constants/enum';
+import { EMOTION_INFO } from '../../commons/constants/enum';
 import { useDiariesModal } from './hooks/index.link.modal.hook';
-
-// 일기 카드를 위한 인터페이스 정의
-interface DiaryCard {
-  id: number;
-  title: string;
-  date: string;
-  emotion: EmotionType;
-  image: string;
-}
-
-// 모크 데이터 생성
-const mockDiaryCards: DiaryCard[] = [
-  {
-    id: 1,
-    title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.SAD,
-    image: EMOTION_INFO[EmotionType.SAD].images.medium
-  },
-  {
-    id: 2,
-    title: '타이틀 영역 입니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.SURPRISE,
-    image: EMOTION_INFO[EmotionType.SURPRISE].images.medium
-  },
-  {
-    id: 3,
-    title: '타이틀 영역 입니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.ANGRY,
-    image: EMOTION_INFO[EmotionType.ANGRY].images.medium
-  },
-  {
-    id: 4,
-    title: '타이틀 영역 입니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.HAPPY,
-    image: EMOTION_INFO[EmotionType.HAPPY].images.medium
-  },
-  {
-    id: 5,
-    title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.ETC,
-    image: EMOTION_INFO[EmotionType.ETC].images.medium
-  },
-  {
-    id: 6,
-    title: '타이틀 영역 입니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.SURPRISE,
-    image: EMOTION_INFO[EmotionType.SURPRISE].images.medium
-  },
-  {
-    id: 7,
-    title: '타이틀 영역 입니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.ANGRY,
-    image: EMOTION_INFO[EmotionType.ANGRY].images.medium
-  },
-  {
-    id: 8,
-    title: '타이틀 영역 입니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.HAPPY,
-    image: EMOTION_INFO[EmotionType.HAPPY].images.medium
-  },
-  {
-    id: 9,
-    title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.SAD,
-    image: EMOTION_INFO[EmotionType.SAD].images.medium
-  },
-  {
-    id: 10,
-    title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-    date: '2024. 03. 12',
-    emotion: EmotionType.ETC,
-    image: EMOTION_INFO[EmotionType.ETC].images.medium
-  },
-];
+import { useDiariesBinding } from './hooks/index.binding.hook';
 
 export default function Diaries() {
   const [filterValue, setFilterValue] = useState('all');
@@ -98,6 +16,7 @@ export default function Diaries() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // 전체 페이지 수
   const { openDiaryWriteModal } = useDiariesModal();
+  const { diaryCards, isLoading } = useDiariesBinding();
   
   const handleFilterChange = (value: string) => {
     setFilterValue(value);
@@ -169,7 +88,7 @@ export default function Diaries() {
       {/* 메인 컨텐츠 영역 - 1168 x 936px */}
       <div className={styles.main}>
         <div className={styles.diaryGrid}>
-          {mockDiaryCards.map((card) => (
+          {!isLoading && diaryCards.map((card) => (
             <div key={card.id} className={styles.diaryCard}>
               <div className={styles.cardImage} style={{ backgroundImage: `url(${card.image})` }}>
                 <div className={styles.closeIcon}></div>

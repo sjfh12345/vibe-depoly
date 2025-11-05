@@ -9,6 +9,7 @@ import Pagination from '../../commons/components/pagination';
 import { EMOTION_INFO } from '../../commons/constants/enum';
 import { useDiariesModal } from './hooks/index.link.modal.hook';
 import { useDiariesBinding } from './hooks/index.binding.hook';
+import { useDiariesLinkRouting } from './hooks/index.link.routing.hook';
 
 export default function Diaries() {
   const [filterValue, setFilterValue] = useState('all');
@@ -17,6 +18,7 @@ export default function Diaries() {
   const totalPages = 5; // 전체 페이지 수
   const { openDiaryWriteModal } = useDiariesModal();
   const { diaryCards, isLoading } = useDiariesBinding();
+  const { handleDiaryCardClick } = useDiariesLinkRouting();
   
   const handleFilterChange = (value: string) => {
     setFilterValue(value);
@@ -89,9 +91,25 @@ export default function Diaries() {
       <div className={styles.main}>
         <div className={styles.diaryGrid}>
           {!isLoading && diaryCards.map((card) => (
-            <div key={card.id} className={styles.diaryCard}>
+            <div 
+              key={card.id} 
+              className={styles.diaryCard}
+              onClick={() => handleDiaryCardClick(card.id)}
+              data-testid={`diary-card-${card.id}`}
+            >
               <div className={styles.cardImage} style={{ backgroundImage: `url(${card.image})` }}>
-                <div className={styles.closeIcon}></div>
+                <div 
+                  className={styles.closeIcon}
+                  onClick={(e) => e.stopPropagation()}
+                  data-testid={`diary-card-${card.id}-close`}
+                >
+                  <img 
+                    src="/icons/close_outline_light_m.svg" 
+                    alt="닫기" 
+                    width={24} 
+                    height={24}
+                  />
+                </div>
               </div>
               <div className={styles.cardContent}>
                 <div className={styles.cardHeader}>

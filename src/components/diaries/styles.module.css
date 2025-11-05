@@ -139,6 +139,7 @@
   flex-direction: column;
   background-color: var(--white);
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .cardImage {

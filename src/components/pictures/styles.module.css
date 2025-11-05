@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.gap {
+  width: 100%;
+  max-width: 1168px;
+}
+
+.gap:first-child {
+  height: 32px;
+}
+
+.gap:nth-of-type(3) {
+  height: 42px;
+}
+
+.filter {
+  width: 100%;
+  max-width: 1168px;
+  height: 48px;
+}
+
+.main {
+  width: 100%;
+  max-width: 1168px;
+  height: auto;
+}
+

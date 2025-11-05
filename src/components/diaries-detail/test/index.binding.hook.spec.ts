@@ -131,3 +131,4 @@ test('다른 id의 일기를 확인함', async ({ page }) => {
   await expect(content).toHaveText('세 번째 일기의 내용입니다.');
 });
 
+

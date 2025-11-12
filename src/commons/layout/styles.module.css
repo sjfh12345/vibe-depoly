@@ -42,6 +42,10 @@
   line-height: var(--line-height-normal);
 }
 
+.loginButton {
+  width: fit-content;
+}
+
 .logoutButton {
   width: fit-content;
 }

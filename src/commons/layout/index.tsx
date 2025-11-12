@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import { useLayoutRouting } from './hooks/index.link.routing.hook';
 import { useLayoutArea } from './hooks/index.area.hook';
-import { useAuth } from '../providers/auth/auth.provider';
+import { useLayoutAuth } from './hooks/index.auth.hook';
 import Button from '../components/button';
 
 interface LayoutProps {
@@ -14,7 +14,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const { navigateToDiaries, navigateToPictures, isDiariesActive, isPicturesActive } = useLayoutRouting();
   const { showHeader, showLogo, showBanner, showNavigation, showFooter } = useLayoutArea();
-  const { isLoggedIn, user } = useAuth();
+  const { isLoggedIn, user, login, logout } = useLayoutAuth();
 
   return (
     <div className={styles.container} data-testid="layout-container">
@@ -26,18 +26,29 @@ export default function Layout({ children }: LayoutProps) {
                 민지의 다이어리
               </div>
             )}
-            {isLoggedIn && user && (
+            {isLoggedIn && user ? (
               <div className={styles.authStatus} data-testid="layout-auth-status">
-                <span className={styles.userName}>{user.name}</span>
+                <span className={styles.userName} data-testid="layout-user-name">{user.name}</span>
                 <Button 
                   variant="secondary" 
                   size="medium" 
                   className={styles.logoutButton}
-                  onClick={() => {}}
+                  onClick={logout}
+                  data-testid="layout-logout-button"
                 >
                   로그아웃
                 </Button>
               </div>
+            ) : (
+              <Button 
+                variant="primary" 
+                size="medium" 
+                className={styles.loginButton}
+                onClick={login}
+                data-testid="layout-login-button"
+              >
+                로그인
+              </Button>
             )}
           </div>
         </header>

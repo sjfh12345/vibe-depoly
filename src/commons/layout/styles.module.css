@@ -28,6 +28,24 @@
   cursor: pointer;
 }
 
+/* Auth Status 스타일 */
+.authStatus {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-100);
+  line-height: var(--line-height-normal);
+}
+
+.logoutButton {
+  width: fit-content;
+}
+
 .darkModeToggle {
   font-size: 16px;
   font-weight: var(--font-weight-regular);

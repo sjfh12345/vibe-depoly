@@ -4,6 +4,8 @@ import React from 'react';
 import styles from './styles.module.css';
 import { useLayoutRouting } from './hooks/index.link.routing.hook';
 import { useLayoutArea } from './hooks/index.area.hook';
+import { useAuth } from '../providers/auth/auth.provider';
+import Button from '../components/button';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +14,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const { navigateToDiaries, navigateToPictures, isDiariesActive, isPicturesActive } = useLayoutRouting();
   const { showHeader, showLogo, showBanner, showNavigation, showFooter } = useLayoutArea();
+  const { isLoggedIn, user } = useAuth();
 
   return (
     <div className={styles.container} data-testid="layout-container">
@@ -21,6 +24,19 @@ export default function Layout({ children }: LayoutProps) {
             {showLogo && (
               <div className={styles.logo} onClick={navigateToDiaries} data-testid="layout-logo">
                 민지의 다이어리
+              </div>
+            )}
+            {isLoggedIn && user && (
+              <div className={styles.authStatus} data-testid="layout-auth-status">
+                <span className={styles.userName}>{user.name}</span>
+                <Button 
+                  variant="secondary" 
+                  size="medium" 
+                  className={styles.logoutButton}
+                  onClick={() => {}}
+                >
+                  로그아웃
+                </Button>
               </div>
             )}
           </div>

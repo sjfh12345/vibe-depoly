@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Input from '../../commons/components/input';
 import Button from '../../commons/components/button';
 import { useTheme } from 'next-themes';
+import { useLoginForm } from './hooks/index.form.hook';
 import { RouteType, getRoutePath } from '../../commons/constants/url';
 import styles from './styles.module.css';
 
 export default function AuthLogin() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { register, onSubmit, errors, isFormValid, isLoading } = useLoginForm();
 
   useEffect(() => {
     const currentTheme = theme ?? resolvedTheme;
@@ -31,17 +31,15 @@ export default function AuthLogin() {
           </p>
         </div>
 
-        <form className={styles.form} aria-label="로그인 폼" autoComplete="off">
+        <form className={styles.form} onSubmit={onSubmit} aria-label="로그인 폼" autoComplete="off">
           <div className={styles.field}>
             <label className={styles.label} htmlFor="login-email">
               이메일
             </label>
             <Input
               id="login-email"
+              {...register('email')}
               type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               placeholder="이메일을 입력해주세요."
               autoComplete="off"
               variant="primary"
@@ -49,6 +47,11 @@ export default function AuthLogin() {
               className={styles.inputWidth}
               data-testid="login-email-input"
             />
+            {errors.email && (
+              <span style={{ color: 'var(--red-50)', fontSize: 'var(--body03-m-font-size)' }}>
+                {errors.email.message}
+              </span>
+            )}
           </div>
 
           <div className={styles.field}>
@@ -57,10 +60,8 @@ export default function AuthLogin() {
             </label>
             <Input
               id="login-password"
+              {...register('password')}
               type="password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               placeholder="비밀번호를 입력해주세요."
               autoComplete="new-password"
               variant="primary"
@@ -68,6 +69,11 @@ export default function AuthLogin() {
               className={styles.inputWidth}
               data-testid="login-password-input"
             />
+            {errors.password && (
+              <span style={{ color: 'var(--red-50)', fontSize: 'var(--body03-m-font-size)' }}>
+                {errors.password.message}
+              </span>
+            )}
           </div>
 
           <Button
@@ -75,9 +81,10 @@ export default function AuthLogin() {
             variant="primary"
             size="large"
             className={styles.buttonWidth}
+            disabled={!isFormValid || isLoading}
             data-testid="login-submit-button"
           >
-            로그인
+            {isLoading ? '처리 중...' : '로그인'}
           </Button>
         </form>
 

@@ -5,7 +5,7 @@ test.describe('Layout Link Routing', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기 (data-testid 사용)
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
     
     // 로고 클릭
     await page.click('[data-testid="layout-logo"]');
@@ -18,7 +18,7 @@ test.describe('Layout Link Routing', () => {
     await page.goto('/');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
     
     // 일기보관함 클릭
     await page.click('[data-testid="layout-nav-diaries"]');
@@ -35,7 +35,7 @@ test.describe('Layout Link Routing', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
     
     // 사진보관함 클릭
     await page.click('[data-testid="layout-nav-pictures"]');
@@ -52,7 +52,7 @@ test.describe('Layout Link Routing', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
     
     // 일기보관함 탭이 활성화되어 있는지 확인
     const diariesTab = page.locator('[data-testid="layout-nav-diaries"]');

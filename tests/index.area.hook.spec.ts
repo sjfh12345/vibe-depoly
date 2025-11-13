@@ -4,7 +4,7 @@ test.describe('Layout Area Visibility', () => {
   test.describe('공개 페이지 - /diaries', () => {
     test('모든 영역이 표시되어야 함', async ({ page }) => {
       await page.goto('/diaries');
-      await page.waitForSelector('[data-testid="layout-container"]');
+      await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
       // Header 영역 표시 확인
       const header = page.locator('[data-testid="layout-header"]');
@@ -31,7 +31,7 @@ test.describe('Layout Area Visibility', () => {
   test.describe('일기 상세 페이지 - /diaries/1', () => {
     test('header와 footer만 표시되어야 함', async ({ page }) => {
       await page.goto('/diaries/1');
-      await page.waitForSelector('[data-testid="layout-container"]');
+      await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
       // Header 영역 표시 확인
       const header = page.locator('[data-testid="layout-header"]');
@@ -58,7 +58,7 @@ test.describe('Layout Area Visibility', () => {
   test.describe('로그인 페이지 - /auth/login', () => {
     test.skip('모든 영역이 숨겨져야 함', async ({ page }) => {
       await page.goto('/auth/login');
-      await page.waitForSelector('[data-testid="layout-container"]');
+      await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
       // Header 영역 숨김 확인
       const header = page.locator('[data-testid="layout-header"]');
@@ -81,7 +81,7 @@ test.describe('Layout Area Visibility', () => {
   test.describe('회원가입 페이지 - /auth/signup', () => {
     test.skip('모든 영역이 숨겨져야 함', async ({ page }) => {
       await page.goto('/auth/signup');
-      await page.waitForSelector('[data-testid="layout-container"]');
+      await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
       // Header 영역 숨김 확인
       const header = page.locator('[data-testid="layout-header"]');
@@ -104,7 +104,7 @@ test.describe('Layout Area Visibility', () => {
   test.describe('사진보관함 페이지 - /pictures', () => {
     test.skip('모든 영역이 표시되어야 함', async ({ page }) => {
       await page.goto('/pictures');
-      await page.waitForSelector('[data-testid="layout-container"]');
+      await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
       // Header 영역 표시 확인
       const header = page.locator('[data-testid="layout-header"]');

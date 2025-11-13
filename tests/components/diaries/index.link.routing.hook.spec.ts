@@ -44,7 +44,7 @@ test('일기 카드 클릭 시 상세 페이지로 이동', async ({ page }) => 
   await page.reload();
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기 카드들 확인
   const firstCard = page.locator('[data-testid="diary-card-1"]');
@@ -106,7 +106,7 @@ test('여러 일기 카드 중 특정 카드 클릭 시 올바른 경로로 이�
   await page.reload();
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기 카드들 확인
   const secondCard = page.locator('[data-testid="diary-card-20"]');
@@ -154,7 +154,7 @@ test('삭제 아이콘 클릭 시 페이지 이동하지 않음', async ({ page 
   await page.reload();
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기 카드 확인
   const diaryCard = page.locator('[data-testid="diary-card-1"]');

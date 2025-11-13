@@ -75,7 +75,12 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
   // ESC 키를 눌렀을 때 모달 닫기
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (event.key === "Escape" && isOpen) {
-      closeModal();
+      // 현재 모달의 closeOnBackdropClick 속성 확인
+      const modalElement = document.querySelector('[data-close-on-backdrop-click]');
+      const closeOnBackdropClick = modalElement?.getAttribute('data-close-on-backdrop-click');
+      if (closeOnBackdropClick !== 'false') {
+        closeModal();
+      }
     }
   }, [isOpen, closeModal]);
 
@@ -101,7 +106,14 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
               isAnimating ? "bg-opacity-0" : "bg-opacity-50"
             }`}
             onClick={(e) => {
-              if (e.target === e.currentTarget) closeModal();
+              if (e.target === e.currentTarget) {
+                // 현재 모달의 closeOnBackdropClick 속성 확인
+                const modalElement = e.currentTarget.querySelector('[data-close-on-backdrop-click]');
+                const closeOnBackdropClick = modalElement?.getAttribute('data-close-on-backdrop-click');
+                if (closeOnBackdropClick !== 'false') {
+                  closeModal();
+                }
+              }
             }}
             aria-modal="true"
             role="dialog"

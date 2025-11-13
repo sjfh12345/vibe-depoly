@@ -16,6 +16,7 @@ interface AuthContextType {
   logout: () => void;
   checkLoginStatus: () => boolean;
   getUser: () => User | null;
+  updateAuthState: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -157,6 +158,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         logout,
         checkLoginStatus,
         getUser,
+        updateAuthState,
       }}
     >
       {children}

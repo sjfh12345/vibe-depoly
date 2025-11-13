@@ -359,3 +359,4 @@ emotion: EmotionType.HAPPY,  // enum 사용
 현재 구현은 모든 필수 조건을 충족하며, 테스트가 정상적으로 작동합니다.
 
 
+

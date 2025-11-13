@@ -19,19 +19,19 @@ test('닫기 버튼 클릭 시 취소 모달이 열리고, 계속 작성 버튼 
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인 (04-func.mdc 규칙 적용)
   // networkidle 대신 고정식별자 사용으로 CSS Module과의 충돌 방지
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기쓰기 버튼 클릭 - data-testid 셀렉터 활용
   await page.click('[data-testid="diary-new-button"]');
 
   // 일기쓰기 폼 모달 표시 대기 - data-testid로 식별
-  await page.waitForSelector('[data-testid="diaries-new-title"]');
+  await page.waitForSelector('[data-testid="diaries-new-title"]', { timeout: 5000 });
 
   // 닫기 버튼 클릭 - data-testid로 식별하여 CSS Module과의 충돌 방지
   await page.click('[data-testid="diary-close-button"]');
 
   // 취소 확인 모달이 열림을 확인 - data-testid로 식별
-  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]');
+  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]', { timeout: 5000 });
   
   // 계속 작성하기 버튼 클릭 - 텍스트 콘텐츠로 식별
   await page.click('button:has-text("계속 작성")');
@@ -61,19 +61,19 @@ test('닫기 버튼 클릭 시 취소 모달이 열리고, 등록록 취소 버�
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인 (04-func.mdc 규칙 적용)
   // networkidle 대신 고정식별자 사용으로 CSS Module과의 충돌 방지
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기쓰기 버튼 클릭 - data-testid 셀렉터 활용
   await page.click('[data-testid="diary-new-button"]');
 
   // 일기쓰기 폼 모달 표시 대기 - data-testid로 식별
-  await page.waitForSelector('[data-testid="diaries-new-title"]');
+  await page.waitForSelector('[data-testid="diaries-new-title"]', { timeout: 5000 });
 
   // 닫기 버튼 클릭 - data-testid로 식별하여 CSS Module과의 충돌 방지
   await page.click('[data-testid="diary-close-button"]');
 
   // 취소 확인 모달이 열림을 확인 - data-testid로 식별
-  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]');
+  await page.waitForSelector('[data-testid="diary-cancel-modal-title"]', { timeout: 5000 });
   
   // 작성 취소 버튼 클릭 - 알림창 없이 바로 닫힘
   await page.click('button:has-text("등록 취소")');

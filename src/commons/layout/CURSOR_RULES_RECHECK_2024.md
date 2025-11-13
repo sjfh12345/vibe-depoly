@@ -188,3 +188,4 @@ await page.goto('/diaries');  // ✅ 경로만 사용
 
 
 
+

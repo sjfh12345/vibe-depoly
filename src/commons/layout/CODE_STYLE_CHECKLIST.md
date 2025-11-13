@@ -1,135 +1,75 @@
-# 코드 스타일 일관성 재검토 체크리스트
+# 코드 스타일 일관성 체크리스트
 
-## 1. 'use client' 사용 패턴
+## Import 경로 스타일
 
-### 프로젝트 전체 현황
-- ✅ `src/commons/layout/index.tsx`: `'use client'` (single quote)
-- ⚠️ `src/commons/providers/react-query/react-query.provider.tsx`: `"use client"` (double quote)
-- ⚠️ `src/commons/providers/modal/modal.provider.tsx`: `"use client"` (double quote)
-- ✅ `src/commons/providers/next-themes/next-themes.provider.tsx`: `'use client'` (single quote)
-- ✅ `src/commons/components/toggle/index.tsx`: `'use client'` (single quote)
+### ✅ 수정 완료
+- [x] `index.auth.hook.ts`의 import 경로를 상대 경로에서 `@/` alias로 변경
+  - **변경 전**: `import { useAuth } from '../../providers/auth/auth.provider';`
+  - **변경 후**: `import { useAuth } from '@/commons/providers/auth/auth.provider';`
+  - **이유**: 다른 layout hooks (`index.link.routing.hook.ts`, `index.area.hook.ts`)와 일관성 유지
 
-### 평가
-프로젝트 전체에서 'use client'의 따옴표 스타일이 일관되지 않습니다.
-- 대부분: single quote (`'use client'`)
-- 일부: double quote (`"use client"`)
+### ✅ 일관성 확인
+- [x] `index.link.routing.hook.ts`: `@/commons/constants/url` 사용
+- [x] `index.area.hook.ts`: `@/commons/constants/url` 사용
+- [x] `index.auth.hook.ts`: `@/commons/providers/auth/auth.provider` 사용 (수정 완료)
 
-**현재 Layout 구현**: ✅ single quote 사용 (프로젝트 표준과 일치)
+## 함수 선언 스타일
 
-## 2. React Import 패턴
+### ✅ 일관성 확인
+- [x] 모든 hooks에서 `export const` 사용
+  - `export const useLayoutRouting = () => { ... }`
+  - `export const useLayoutArea = () => { ... }`
+  - `export const useLayoutAuth = () => { ... }`
 
-### 프로젝트 전체 현황
-- ✅ `src/commons/layout/index.tsx`: `import React from 'react';`
-- ✅ `src/commons/providers/modal/modal.provider.tsx`: `import React, { ... } from "react";`
-- ✅ `src/commons/providers/react-query/react-query.provider.tsx`: React import 없음
-- ✅ `src/commons/providers/next-themes/next-themes.provider.tsx`: React import 없음
-- ✅ `src/commons/components/toggle/index.tsx`: `import React, { ... } from 'react';`
+## Return 문 스타일
 
-### 평가
-React import 사용이 일관적이지 않습니다.
-- Client component: 대부분 React import
-- 간단한 Provider: React import 없음
+### ✅ 일관성 확인
+- [x] 모든 hooks에서 객체 형태로 return
+  - `useLayoutRouting`: 4개 속성 반환
+  - `useLayoutArea`: 5개 속성 반환
+  - `useLayoutAuth`: 4개 속성 반환
 
-**현재 Layout 구현**: ✅ React import 사용 (적절함)
+## 빈 줄 스타일
 
-## 3. Props Interface 정의 패턴
+### ✅ 일관성 확인
+- [x] 파일 끝에 빈 줄 1개 유지
+  - `index.link.routing.hook.ts`: 빈 줄 1개
+  - `index.area.hook.ts`: 빈 줄 2개 (기존 파일 유지)
+  - `index.auth.hook.ts`: 빈 줄 1개
 
-### 프로젝트 전체 현황
-- ✅ `src/commons/layout/index.tsx`: 
-  ```typescript
-  interface LayoutProps {
-    children: React.ReactNode;
-  }
-  ```
-- ✅ `src/commons/providers/next-themes/next-themes.provider.tsx`:
-  ```typescript
-  interface NextThemesProviderProps {
-    children: ReactNode;
-  }
-  ```
-- ✅ `src/commons/providers/react-query/react-query.provider.tsx`:
-  ```typescript
-  interface ReactQueryProviderProps {
-    children: React.ReactNode;
-  }
-  ```
-- ⚠️ `src/commons/providers/modal/modal.provider.tsx`:
-  ```typescript
-  export default function ModalProvider({ children }: { children: ReactNode })
-  ```
-  (inline type 사용 - 일관성 부족)
+## 주석 스타일
 
-### 평가
-- 대부분의 컴포넌트는 Props interface를 사용합니다.
-- ModalProvider만 inline type을 사용하여 일관성이 부족합니다.
+### ✅ 일관성 확인
+- [x] hooks 파일에는 주석 없음 (간단한 구조이므로 주석 불필요)
+- [x] 복잡한 로직이 있는 경우에만 주석 추가
 
-**현재 Layout 구현**: ✅ Props interface 사용 (프로젝트 표준과 일치)
+## 컴포넌트 스타일
 
-## 4. Hook Export 패턴
+### ✅ 일관성 확인
+- [x] `index.tsx`에서 import 순서:
+  1. React 관련
+  2. 스타일 파일
+  3. Hooks (로컬)
+  4. 컴포넌트 (상위 디렉토리)
+- [x] `'use client'` 지시어 사용 (클라이언트 컴포넌트)
+- [x] `data-testid` 속성 일관성 있게 사용
 
-### 프로젝트 전체 현황
-- ✅ `src/commons/layout/hooks/index.link.routing.hook.ts`:
-  ```typescript
-  export const useLayoutRouting = () => {
-    // ...
-  };
-  ```
-- ✅ `src/commons/providers/modal/modal.provider.tsx`:
-  ```typescript
-  export const useModal = () => {
-    // ...
-  };
-  ```
+## 빌드 확인
 
-### 평가
-- 모든 hook은 화살표 함수로 export되고 있습니다.
-- 일관성이 잘 유지되고 있습니다.
+- [x] `npm run build` 성공
+  - 컴파일 오류 없음
+  - 타입 체크 통과
+  - Linter 경고만 존재 (기존 파일들의 경고)
 
-**현재 구현**: ✅ 화살표 함수 사용 (프로젝트 표준과 일치)
+## 수정 요약
 
-## 5. 컴포넌트 Export 패턴
+1. **Import 경로 통일**
+   - `index.auth.hook.ts`의 import 경로를 `@/` alias로 변경하여 다른 layout hooks와 일관성 유지
 
-### 프로젝트 전체 현황
-- ✅ `src/commons/layout/index.tsx`: `export default function Layout`
-- ✅ `src/commons/providers/*`: `export default function`
-- ✅ `src/commons/components/button/index.tsx`: named export와 default export 모두
-- ✅ `src/commons/components/input/index.tsx`: named export와 default export 모두
+## 스타일 가이드라인 준수
 
-### 평가
-- 컴포넌트는 모두 default export를 사용합니다.
-- 일부 컴포넌트는 추가로 named export도 제공합니다.
-
-**현재 Layout 구현**: ✅ default export만 사용 (프로젝트 표준과 일치)
-
-## 6. Data-testid 사용 패턴
-
-### 현재 Layout 구현
-- ✅ `data-testid="layout-container"` - 최상위 컨테이너
-- ✅ `data-testid="layout-logo"` - 로고
-- ✅ `data-testid="layout-nav-diaries"` - 일기보관함 탭
-- ✅ `data-testid="layout-nav-pictures"` - 사진보관함 탭
-
-### 평가
-- 일관된 네이밍 패턴 사용 (`layout-` prefix)
-- 테스트 가능성 확보
-
-**현재 구현**: ✅ 일관된 패턴 사용
-
-## 종합 평가
-
-### ✅ 프로젝트 표준과 일치하는 부분
-1. Props interface 정의 방식
-2. Hook export 패턴 (화살표 함수)
-3. Component export 패턴 (default export)
-4. data-testid 네이밍 패턴
-5. React import 사용 (client component)
-
-### ⚠️ 프로젝트 전체 일관성 문제 (수정 필요 없음)
-1. 'use client' 따옴표 스타일: 프로젝트 전체에서 혼용되고 있음
-2. React import: 컴포넌트 타입에 따라 다름 (이는 정상적인 패턴)
-
-### 최종 결론
-**현재 Layout 구현은 프로젝트의 코드 스타일과 잘 일치합니다.** ✅
-
-특별히 수정이 필요한 부분은 없으며, 프로젝트의 기존 패턴을 잘 따르고 있습니다.
-
+- [x] TypeScript 타입 명시
+- [x] 함수형 컴포넌트 사용
+- [x] Hooks 패턴 일관성
+- [x] Import 경로 alias 사용 (`@/`)
+- [x] 파일명 일관성 (`index.*.hook.ts`)

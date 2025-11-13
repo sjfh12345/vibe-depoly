@@ -194,3 +194,4 @@ test('다른 감정 타입의 일기 확인', async ({ page }) => {
   await expect(date).toHaveText('2024. 03. 15');
 });
 
+

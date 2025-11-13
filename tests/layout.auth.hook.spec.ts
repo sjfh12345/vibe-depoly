@@ -4,7 +4,7 @@ test.describe('Layout Auth Hook', () => {
   test('비로그인 유저 시나리오', async ({ page }) => {
     // 1. 비회원으로 /diaries에 접속하여 페이지 로드 확인
     await page.goto('/diaries');
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
     // 2. layout의 로그인버튼 노출여부 확인
     const loginButton = page.locator('[data-testid="layout-login-button"]');
@@ -13,14 +13,14 @@ test.describe('Layout Auth Hook', () => {
 
     // 3. 로그인버튼 클릭하여 /auth/login 페이지로 이동
     await loginButton.click();
-    await page.waitForSelector('[data-testid="auth-login-section"]');
+    await page.waitForSelector('[data-testid="auth-login-section"]', { timeout: 5000 });
     await expect(page).toHaveURL('/auth/login');
   });
 
   test('로그인 유저 시나리오', async ({ page }) => {
     // 1. 비회원으로 /auth/login에 접속하여 페이지 로드 확인
     await page.goto('/auth/login');
-    await page.waitForSelector('[data-testid="auth-login-section"]');
+    await page.waitForSelector('[data-testid="auth-login-section"]', { timeout: 5000 });
 
     // 2. 로그인시도
     // email: qq@qq.com
@@ -35,12 +35,12 @@ test.describe('Layout Auth Hook', () => {
 
     // 3. 로그인 성공 후, 완료 모달 클릭하여 /diaries 페이지 로드 확인
     // 모달의 확인 버튼 클릭 (모달이 나타날 때까지 대기)
-    await page.waitForSelector('h2:has-text("로그인 완료")');
+    await page.waitForSelector('h2:has-text("로그인 완료")', { timeout: 5000 });
     // 확인 버튼 클릭 (텍스트로 찾기)
     await page.click('button:has-text("확인")');
     
     // /diaries 페이지 로드 확인
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
     await expect(page).toHaveURL('/diaries');
 
     // auth.provider가 localStorage를 읽어와서 상태를 업데이트하도록 유도
@@ -51,7 +51,7 @@ test.describe('Layout Auth Hook', () => {
 
     // 4. layout에서 유저이름, 로그아웃버튼 노출여부 확인
     // auth-status가 나타날 때까지 직접 대기
-    await page.waitForSelector('[data-testid="layout-auth-status"]');
+    await page.waitForSelector('[data-testid="layout-auth-status"]', { timeout: 5000 });
     const authStatus = page.locator('[data-testid="layout-auth-status"]');
     await expect(authStatus).toBeVisible();
     
@@ -66,12 +66,12 @@ test.describe('Layout Auth Hook', () => {
 
     // 5. 로그아웃버튼 클릭하여 /auth/login 페이지 로드 확인
     await logoutButton.click();
-    await page.waitForSelector('[data-testid="auth-login-section"]');
+    await page.waitForSelector('[data-testid="auth-login-section"]', { timeout: 5000 });
     await expect(page).toHaveURL('/auth/login');
 
     // 6. /diaries에 접속하여 페이지 로드 확인
     await page.goto('/diaries');
-    await page.waitForSelector('[data-testid="layout-container"]');
+    await page.waitForSelector('[data-testid="layout-container"]', { timeout: 5000 });
 
     // 7. layout에 로그인버튼 노출여부 확인
     const loginButton = page.locator('[data-testid="layout-login-button"]');

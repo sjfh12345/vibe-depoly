@@ -55,6 +55,12 @@ export interface ModalProps {
    * 취소 버튼 클릭 이벤트
    */
   onCancel?: () => void;
+
+  /**
+   * 배경 클릭 시 모달 닫기 여부
+   * @default true
+   */
+  closeOnBackdropClick?: boolean;
 }
 
 /**
@@ -70,6 +76,7 @@ export const Modal = ({
   cancelText = '취소',
   onConfirm,
   onCancel,
+  closeOnBackdropClick = true,
 }: ModalProps) => {
   const { theme: systemTheme } = useTheme();
   const currentTheme = themeProp || (systemTheme === 'dark' ? 'dark' : 'light');
@@ -90,7 +97,10 @@ export const Modal = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <div className={modalClasses}>
+    <div 
+      className={modalClasses}
+      data-close-on-backdrop-click={closeOnBackdropClick}
+    >
       <div className={styles.contentContainer}>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.content}>{content}</p>

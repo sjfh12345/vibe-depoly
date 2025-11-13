@@ -57,7 +57,7 @@ test('로컬스토리지에서 일기 데이터를 로드하여 바인딩함', a
   await page.reload();
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기 카드들이 표시되는지 확인
   const diaryCards = page.locator('[class*="diaryCard"]');
@@ -138,7 +138,7 @@ test('로컬스토리지에 데이터가 없는 경우', async ({ page }) => {
   await page.reload();
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기 카드가 표시되지 않는지 확인
   const diaryCards = page.locator('[class*="diaryCard"]');
@@ -179,7 +179,7 @@ test('다른 감정 타입의 일기 확인', async ({ page }) => {
   await page.reload();
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diaries-page-content"]');
+  await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
 
   // 일기 카드 확인
   const diaryCards = page.locator('[class*="diaryCard"]');
@@ -193,4 +193,5 @@ test('다른 감정 타입의 일기 확인', async ({ page }) => {
   const date = diaryCards.locator('[class*="date"]');
   await expect(date).toHaveText('2024. 03. 15');
 });
+
 

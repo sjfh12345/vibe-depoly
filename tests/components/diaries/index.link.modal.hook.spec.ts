@@ -5,7 +5,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기 (data-testid 사용)
-    await page.waitForSelector('[data-testid="diaries-page-content"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
     
     // 일기쓰기 버튼 클릭
     await page.click('[data-testid="diary-new-button"]');
@@ -26,7 +26,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="diaries-page-content"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
     
     // 일기쓰기 버튼 클릭하여 모달 열기
     await page.click('[data-testid="diary-new-button"]');
@@ -46,7 +46,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="diaries-page-content"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
     
     // 일기쓰기 버튼 클릭하여 모달 열기
     await page.click('[data-testid="diary-new-button"]');
@@ -66,7 +66,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.goto('/diaries');
     
     // 페이지 로드 대기
-    await page.waitForSelector('[data-testid="diaries-page-content"]');
+    await page.waitForSelector('[data-testid="diaries-page-content"]', { timeout: 5000 });
     
     // 일기쓰기 버튼 클릭하여 모달 열기
     await page.click('[data-testid="diary-new-button"]');
@@ -79,7 +79,7 @@ test.describe('Diaries - Link Modal Hook', () => {
     await page.click('[data-testid="diary-close-button"]');
     
     // 취소 확인 모달이 열렸는지 확인
-    await page.waitForSelector('[data-testid="diary-cancel-modal-title"]');
+    await page.waitForSelector('[data-testid="diary-cancel-modal-title"]', { timeout: 5000 });
     
     // 취소 모달에서 "등록 취소" 버튼 클릭
     await page.click('button:has-text("등록 취소")');

@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useModal } from '../../../commons/providers/modal/modal.provider';
+import { useAuth } from '../../../commons/providers/auth/auth.provider';
 import Modal from '../../../commons/components/modal';
 import { RouteType, getRoutePath } from '../../../commons/constants/url';
 
@@ -134,6 +135,7 @@ async function fetchUserLoggedIn(accessToken: string): Promise<FetchUserLoggedIn
 export function useLoginForm() {
   const router = useRouter();
   const { openModal, closeAllModals } = useModal();
+  const { updateAuthState } = useAuth();
 
   const {
     register,
@@ -172,6 +174,9 @@ export function useLoginForm() {
           localStorage.setItem('user', JSON.stringify({ _id: user._id, name: user.name }));
         }
 
+        // AuthProvider 상태 즉시 업데이트
+        updateAuthState();
+
         // 로그인 완료 모달 표시
         openModal(
           <Modal
@@ -179,6 +184,7 @@ export function useLoginForm() {
             content="로그인에 성공했습니다."
             variant="info"
             actions="single"
+            closeOnBackdropClick={false}
             onConfirm={() => {
               closeAllModals();
               router.push(getRoutePath(RouteType.DIARIES));

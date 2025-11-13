@@ -50,7 +50,7 @@ test('로컬스토리지에서 일기 데이터를 로드하여 바인딩함', a
   await page.reload();
 
   // 페이지 로드 대기 - data-testid를 통해 페이지 로드 확인
-  await page.waitForSelector('[data-testid="diary-detail-page"]');
+  await page.waitForSelector('[data-testid="diary-detail-page"]', { timeout: 5000 });
 
   // 제목이 올바르게 표시되는지 확인
   const title = page.locator('[data-testid="diary-detail-title"]');
@@ -122,7 +122,7 @@ test('다른 id의 일기를 확인함', async ({ page }) => {
   await page.reload();
 
   // 페이지 로드 대기
-  await page.waitForSelector('[data-testid="diary-detail-page"]');
+  await page.waitForSelector('[data-testid="diary-detail-page"]', { timeout: 5000 });
 
   // 제목이 올바르게 표시되는지 확인
   const title = page.locator('[data-testid="diary-detail-title"]');

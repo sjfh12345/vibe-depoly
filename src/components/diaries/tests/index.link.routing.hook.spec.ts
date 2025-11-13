@@ -169,3 +169,4 @@ test('삭제 아이콘 클릭 시 페이지 이동하지 않음', async ({ page 
   await expect(page).toHaveURL('/diaries');
 });
 
+

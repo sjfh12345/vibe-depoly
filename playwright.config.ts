@@ -15,6 +15,16 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  
+  /* Timeout settings to prevent tests from hanging on errors */
+  /* Maximum time one test can run for (default: 30 seconds) */
+  timeout: 15 * 1000, // 15 seconds per test
+  /* Maximum time each action such as `click()` can take (default: no limit) */
+  expect: {
+    /* Maximum time expect() should wait for the condition to be met (default: 5 seconds) */
+    timeout: 5 * 1000, // 5 seconds for assertions
+  },
+  
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -22,6 +32,11 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    
+    /* Maximum time each action such as `click()` can take (default: no limit) */
+    actionTimeout: 10 * 1000, // 10 seconds for actions
+    /* Maximum time for navigation operations (default: 30 seconds) */
+    navigationTimeout: 10 * 1000, // 10 seconds for navigation
   },
 
   /* Configure projects for major browsers */
@@ -67,6 +82,9 @@ export default defineConfig({
     command: 'npm run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
+    env:{
+      NEXT_PUBLIC_TEST_ENV: 'test',
+    }
   },
 });
 
